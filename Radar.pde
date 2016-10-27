@@ -17,6 +17,17 @@ class Radar
   }
 }
 
+class Rline extends Radar
+{
+  float theta;
+  
+  Rline()
+  {
+    theta = 0.0f;
+  }
+
+}
+
 void createRadar()
 {
   float rSize = 2.6;
@@ -29,7 +40,6 @@ void createRadar()
     rSize -= 0.4;
   }
 }
-
 void drawRcircles()
 {
   if(frameCount % 120 == 0)
@@ -46,4 +56,31 @@ void drawRcircles()
     stroke(0, 255, 0, 5);
     ellipse(r.rx, r.ry, r.radarRadius * r.size, r.radarRadius * r.size);
   }
+}
+
+
+
+void drawLines()
+{
+  for(int i = 0; i < 60; i ++)
+  {
+    float tempTheta = 0;
+    Rline line = new Rline();
+    line.theta += tempTheta;
+    tempTheta += 0.02;
+  }
+  
+  for(Rline line: lines)
+  {
+    float x = line.rx + sin(line.theta) * line.radarRadius;
+    float y = line.ry - sin(line.theta) * line.radarRadius;
+    stroke(0, 255, 0, 255);
+    line(line.rx, line.ry, x, y);//draws radar line
+    line.theta += 0.02f;
+    println(x,y);
+  
+  }
+  
+  
+
 }

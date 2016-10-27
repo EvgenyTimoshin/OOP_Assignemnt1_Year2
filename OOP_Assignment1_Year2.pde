@@ -11,11 +11,14 @@ void setup()
   smooth();
   createRadar();
   background(0);
+  
 }
 
 ArrayList<Radar>circles = new ArrayList<Radar>();
+ArrayList<Rline>lines = new ArrayList<Rline>();
 
 void draw()
 {
   drawRcircles();
+  drawLines();
 }
