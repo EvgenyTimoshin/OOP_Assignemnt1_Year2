@@ -9,7 +9,7 @@ class Radar
   
   Radar()
   {
-    radarRadius = 150;
+    radarRadius = width/15;
     rx = width - width/8;
     ry = height/2;
     c = 0;
@@ -24,9 +24,27 @@ class Rline extends Radar
   Rline()
   {
     theta = 0.0f;
+    radarRadius = radarRadius * 1.3;
   }
 
 }
+
+class Coordinates extends Rline
+{
+  String point;
+  
+  Coordinates()
+  {
+
+    theta = 0.0f;
+    point = "";
+    radarRadius = radarRadius * 1.2;
+  }
+}
+
+/////////////////////////////
+///Methods
+/////////////////////////////
 
 void createRadar()
 {
@@ -58,29 +76,79 @@ void drawRcircles()
   }
 }
 
-
-
 void drawLines()
 {
-  for(int i = 0; i < 60; i ++)
-  {
-    float tempTheta = 0;
-    Rline line = new Rline();
-    line.theta += tempTheta;
-    tempTheta += 0.02;
-  }
+  float x = line.rx + sin(line.theta) * line.radarRadius;
+  float y = line.ry - cos(line.theta) * line.radarRadius;
+  float xOffset = 105;
   
-  for(Rline line: lines)
-  {
-    float x = line.rx + sin(line.theta) * line.radarRadius;
-    float y = line.ry - sin(line.theta) * line.radarRadius;
-    stroke(0, 255, 0, 255);
-    line(line.rx, line.ry, x, y);//draws radar line
-    line.theta += 0.02f;
-    println(x,y);
+  stroke(0, 255, 0, 40);
+  line(line.rx, line.ry, x, y);
+  line.theta += 0.015f;
+  stroke(0, 255, 0, 5);
+  line(line.rx, line.ry + xOffset, line.rx, line.ry + line.radarRadius);
+  line(line.rx, line.ry - xOffset, line.rx, line.ry - line.radarRadius);
+  line(line.rx + xOffset, line.ry, line.rx + line.radarRadius, line.ry);
+  line(line.rx - xOffset, line.ry, line.rx - line.radarRadius, line.ry);
   
-  }
-  
-  
+  println(line.theta);
+}
 
+void drawRadarPoints()
+{
+  for(Coordinates p: compassPoints)
+  {
+    float x = p.rx + sin(p.theta) * p.radarRadius;
+    float y = p.ry - cos(p.theta) * p.radarRadius;
+    
+    fill(0, 255, 0);
+    text(p.point, x, y);
+    println(p.point);
+  }
+}
+
+void createRadarPoints()
+{
+  Coordinates point = new Coordinates();
+  point.theta = 0.0f;
+  //point.x = point.rx;
+  //point.y = point.ry - point.radarRadius;
+  point.point = "N";
+  compassPoints.add(point);
+  
+  Coordinates point2 = new Coordinates();
+  point2.theta = 1.6f;
+  //point.x = point.rx + point.radarRadius;
+  //point.y = point.ry;
+  point2.point = "E";
+  compassPoints.add(point2);
+  
+  Coordinates point3 = new Coordinates();
+  point3.theta = 3.15f;
+  //point.x = point.rx;
+  //point.y = point.ry + point.radarRadius;
+  point3.point = "S";
+  compassPoints.add(point3);
+  
+  Coordinates point4 = new Coordinates();
+  point4.theta = 4.8f;
+  //point.x = point.rx - point.radarRadius;
+  //point.y = point.ry;
+  point4.point = "W";
+  compassPoints.add(point4);
+  
+}
+
+void setupRadar()
+{
+  createRadar();
+  line = new Rline();
+  createRadarPoints();
+}
+
+void drawRadar()
+{
+  drawRcircles();
+  drawLines();
+  drawRadarPoints();
 }

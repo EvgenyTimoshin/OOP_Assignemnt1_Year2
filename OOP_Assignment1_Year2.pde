@@ -8,17 +8,17 @@ Date started 24/10/2016 - current
 void setup()
 {
   fullScreen();
+  //size(600, 600);
   smooth();
-  createRadar();
   background(0);
-  
+  setupRadar();
 }
 
 ArrayList<Radar>circles = new ArrayList<Radar>();
-ArrayList<Rline>lines = new ArrayList<Rline>();
+ArrayList<Coordinates>compassPoints = new ArrayList<Coordinates>();
+Rline line;
 
 void draw()
 {
-  drawRcircles();
-  drawLines();
+  drawRadar();
 }
