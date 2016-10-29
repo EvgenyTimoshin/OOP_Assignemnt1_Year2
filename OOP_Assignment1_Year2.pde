@@ -12,6 +12,7 @@ void setup()
   smooth();
   background(0);
   setupRadar();
+  tab = new Menu();
 }
 
 ArrayList<Radar>circles = new ArrayList<Radar>();
@@ -20,5 +21,8 @@ Rline line;
 
 void draw()
 {
+  background(0,0);
+  
+  drawMenu();
   drawRadar();
 }

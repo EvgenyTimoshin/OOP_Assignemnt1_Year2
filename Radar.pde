@@ -26,7 +26,6 @@ class Rline extends Radar
     theta = 0.0f;
     radarRadius = radarRadius * 1.3;
   }
-
 }
 
 class Coordinates extends Rline
@@ -60,18 +59,13 @@ void createRadar()
 }
 void drawRcircles()
 {
-  if(frameCount % 120 == 0)
-  {
-    Radar r = circles.get(0);
-    fill(0);
-    ellipse(r.rx, r.ry, r.radarRadius * r.size, r.radarRadius * r.size);
-  }
+  
   
   for(int i = 0; i < circles.size()-1; i++)
   {
     Radar r = circles.get(i);
     fill(0,0);
-    stroke(0, 255, 0, 5);
+    stroke(0, 255, 0, 150);
     ellipse(r.rx, r.ry, r.radarRadius * r.size, r.radarRadius * r.size);
   }
 }
@@ -82,10 +76,10 @@ void drawLines()
   float y = line.ry - cos(line.theta) * line.radarRadius;
   float xOffset = 105;
   
-  stroke(0, 255, 0, 40);
+  stroke(0, 255, 0, 150);
   line(line.rx, line.ry, x, y);
   line.theta += 0.015f;
-  stroke(0, 255, 0, 5);
+  stroke(0, 255, 0, 150);
   line(line.rx, line.ry + xOffset, line.rx, line.ry + line.radarRadius);
   line(line.rx, line.ry - xOffset, line.rx, line.ry - line.radarRadius);
   line(line.rx + xOffset, line.ry, line.rx + line.radarRadius, line.ry);
