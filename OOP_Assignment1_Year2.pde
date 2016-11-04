@@ -15,14 +15,10 @@ void setup()
   tab = new Menu();
 }
 
-ArrayList<Radar>circles = new ArrayList<Radar>();
-ArrayList<Coordinates>compassPoints = new ArrayList<Coordinates>();
-Rline line;
+ArrayList<Radar>radars = new ArrayList<Radar>();
 
 void draw()
 {
   background(0,0);
-  
-  drawMenu();
   drawRadar();
 }

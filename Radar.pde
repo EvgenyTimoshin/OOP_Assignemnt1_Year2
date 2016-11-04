@@ -3,146 +3,73 @@ class Radar
   float radarRadius;
   float rx;
   float ry;
-  float size;
   color c;
   float transperacy;
+  float theta;
+  float radarSpeed;
+  float fadeSpeed;
   
   Radar()
+  {};
+  
+  Radar(float radarRadius, float rx, float ry,
+        color c, float transperacy, float theta, float radarSpeed,
+        float fadeSpeed)
   {
-    radarRadius = width/15;
-    rx = width - width/8;
-    ry = height/2;
-    c = 0;
-    transperacy = 0;
+    this.radarRadius = width/15;
+    this.rx = width - width/8;
+    this.ry = height/2;
+    this.c = color(0,255,0);
+    this.transperacy = 255;
+    this.theta = 0.0f;
+    this.radarSpeed = 0.01f;
+    this.fadeSpeed = 3;
   }
-}
-
-class Rline extends Radar
-{
-  float theta;
   
-  Rline()
+  void draw()
   {
-    theta = 0.0f;
-    radarRadius = radarRadius * 1.3;
-  }
-}
-
-class Coordinates extends Rline
-{
-  String point;
-  
-  Coordinates()
-  {
-
-    theta = 0.0f;
-    point = "";
-    radarRadius = radarRadius * 1.2;
-  }
-}
-
-/////////////////////////////
-///Methods
-/////////////////////////////
-
-void createRadar()
-{
-  float rSize = 2.6;
-  
-  for(int i = 0; i < 5; i++)
-  {
-    Radar r = new Radar();
-    r.size = rSize;
-    circles.add(r);
-    rSize -= 0.4;
-  }
-}
-void drawRcircles()
-{
-  
-  
-  for(int i = 0; i < circles.size()-1; i++)
-  {
-    Radar r = circles.get(i);
-    fill(0,0);
-    stroke(0, 255, 0, 150);
-    ellipse(r.rx, r.ry, r.radarRadius * r.size, r.radarRadius * r.size);
-  }
-}
-
-void drawLines()
-{
-  float x = line.rx + sin(line.theta) * line.radarRadius;
-  float y = line.ry - cos(line.theta) * line.radarRadius;
-  float xOffset = 105;
-  
-  stroke(0, 255, 0, 150);
-  line(line.rx, line.ry, x, y);
-  line.theta += 0.015f;
-  stroke(0, 255, 0, 150);
-  line(line.rx, line.ry + xOffset, line.rx, line.ry + line.radarRadius);
-  line(line.rx, line.ry - xOffset, line.rx, line.ry - line.radarRadius);
-  line(line.rx + xOffset, line.ry, line.rx + line.radarRadius, line.ry);
-  line(line.rx - xOffset, line.ry, line.rx - line.radarRadius, line.ry);
-  
-  println(line.theta);
-}
-
-void drawRadarPoints()
-{
-  for(Coordinates p: compassPoints)
-  {
-    float x = p.rx + sin(p.theta) * p.radarRadius;
-    float y = p.ry - cos(p.theta) * p.radarRadius;
+    float x = rx + sin(theta) * radarRadius;
+    float y = ry - cos(theta) * radarRadius;
+    fill(0);
     
-    fill(0, 255, 0);
-    text(p.point, x, y);
-    println(p.point);
-  }
-}
+    //if(frameCount % 120 != 0)
+    {
+    stroke(c,transperacy);
+    ellipse(rx, ry, radarRadius*2, radarRadius*2);
+    ellipse(rx, ry, radarRadius*1.6, radarRadius*1.6);
+    ellipse(rx, ry, radarRadius*1.2, radarRadius*1.2);
+    }
+    
+    if(transperacy == 0 || transperacy == 255)
+    {
+      fadeSpeed = fadeSpeed * -1;
+    }
+    
+    transperacy += fadeSpeed;
+    
+    line(rx , ry , x, y);
+    theta += radarSpeed; 
+  }//object draw function
+}//end RADAR class
 
-void createRadarPoints()
+
+//Radar navigation thing class
+class RadarNav extends Radar
 {
-  Coordinates point = new Coordinates();
-  point.theta = 0.0f;
-  //point.x = point.rx;
-  //point.y = point.ry - point.radarRadius;
-  point.point = "N";
-  compassPoints.add(point);
-  
-  Coordinates point2 = new Coordinates();
-  point2.theta = 1.6f;
-  //point.x = point.rx + point.radarRadius;
-  //point.y = point.ry;
-  point2.point = "E";
-  compassPoints.add(point2);
-  
-  Coordinates point3 = new Coordinates();
-  point3.theta = 3.15f;
-  //point.x = point.rx;
-  //point.y = point.ry + point.radarRadius;
-  point3.point = "S";
-  compassPoints.add(point3);
-  
-  Coordinates point4 = new Coordinates();
-  point4.theta = 4.8f;
-  //point.x = point.rx - point.radarRadius;
-  //point.y = point.ry;
-  point4.point = "W";
-  compassPoints.add(point4);
   
 }
 
+//Methods
 void setupRadar()
 {
-  createRadar();
-  line = new Rline();
-  createRadarPoints();
+  Radar r = new Radar(200, width/2, height/2, (color(0, 255 ,0 )), 255, 0.0f, 0.01f,3);
+  radars.add(r);
 }
 
 void drawRadar()
 {
-  drawRcircles();
-  drawLines();
-  drawRadarPoints();
+  for(Radar r: radars)
+  {
+    r.draw();
+  }
 }
