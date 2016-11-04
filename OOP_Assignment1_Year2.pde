@@ -16,6 +16,7 @@ void setup()
 }
 
 ArrayList<Radar>radars = new ArrayList<Radar>();
+ArrayList<Radar>radarTexts = new ArrayList<Radar>();
 
 void draw()
 {
