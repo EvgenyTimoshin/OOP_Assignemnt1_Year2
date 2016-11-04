@@ -9,6 +9,7 @@ class Radar
   float radarSpeed;
   float fadeSpeed;
   String text;
+  int trailLength = 50;
   
   Radar()
   {};
@@ -30,17 +31,6 @@ class Radar
   
   void draw()
   {
-    float x = rx + sin(theta) * radarRadius;
-    float y = ry - cos(theta) * radarRadius;
-    fill(0);
-    
-    //if(frameCount % 120 != 0)
-    {
-    stroke(c,transperacy);
-    ellipse(rx, ry, radarRadius*2, radarRadius*2);
-    ellipse(rx, ry, radarRadius*1.6, radarRadius*1.6);
-    ellipse(rx, ry, radarRadius*1.2, radarRadius*1.2);
-    }
     
     if(transperacy == 0 || transperacy == 255)
     {
@@ -49,8 +39,25 @@ class Radar
     
     transperacy += fadeSpeed;
     
-    line(rx , ry , x, y);
-    theta += radarSpeed; 
+    
+    stroke(c,transperacy);
+    noFill();
+    ellipse(rx, ry, radarRadius*2, radarRadius*2);
+    ellipse(rx, ry, radarRadius*1.6, radarRadius*1.6);
+    ellipse(rx, ry, radarRadius*1.2, radarRadius*1.2);
+    
+    float intensityChange = 255.0f / trailLength;
+    for(int i = 0 ; i < trailLength ; i ++)
+    {
+      
+      float lineTheta = theta - (i * 0.009f);
+      stroke(0, 255 - (i * intensityChange), 0, 150 - (i * intensityChange));
+      float x = rx + sin(lineTheta) * radarRadius ;
+      float y = ry - cos(lineTheta) * radarRadius ;
+      line(rx, ry, x, y);
+    }
+    theta += radarSpeed;
+    
   }//object draw function
   
   void drawRadarNavs()
