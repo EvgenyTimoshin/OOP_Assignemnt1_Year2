@@ -14,7 +14,7 @@ void setup()
   setupRadar();
   tab = new Menu();
 }
-
+Boolean blue = false, red = true, green = false, someshit = false;
 ArrayList<Radar>radars = new ArrayList<Radar>();
 ArrayList<Radar>radarTexts = new ArrayList<Radar>();
 
@@ -22,4 +22,29 @@ void draw()
 {
   background(0,0);
   drawRadar();
+}
+
+void keyPressed()
+{
+  radarChangeColor();
+  if(key == '1')
+  {
+    red = true;
+    blue = green = someshit = true;
+  }
+  if(key == '2')
+  {
+    blue = true;
+    red = green = someshit = false;
+  }
+  if(key == '3')
+  {
+    green = true;
+    red = blue = someshit = false;
+  }
+  if(key == '4')
+  {
+    someshit = true;
+    red = blue = green = false;
+  }
 }
