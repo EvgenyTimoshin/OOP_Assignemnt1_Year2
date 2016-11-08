@@ -25,7 +25,7 @@ class Menu
   void drawButtons()
   {
     Radar radar = radars.get(0);
-    stroke(radar.c);
+    stroke(radar.c, 150);
     noFill();
     rect(x, y, size, size);
   }
@@ -35,9 +35,12 @@ void drawMenu()
 {
   tab.draw();
   
-  for(Menu button: buttons)
+  if(menuButtons == true)
   {
-    button.drawButtons();
+    for(Menu button: buttons)
+    {
+      button.drawButtons();
+    }
   }
   
   menuNav();
@@ -45,7 +48,18 @@ void drawMenu()
 
 void menuNav()
 {
-  if(mouseX < 240 && tab.x < - 4)
+  println(tab.x);
+  
+  
+  if(tab.x > -5.0f)
+  {
+    menuButtons = true;
+  }
+  else if(tab.x < -5)
+  {
+    menuButtons = false;
+  }
+  if(mouseX <= 240 && tab.x < - 4)
   {
     tab.x += 4;
   }

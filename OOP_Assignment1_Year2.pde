@@ -11,14 +11,15 @@ void setup()
   //size(600, 600);
   smooth();
   //
-  frameRate(60);
+  frameRate(120);
   background(0);
   setupRadar();
   createButtons();
+  setupCamera();
   
   tab = new Menu();
 }
-Boolean blue = false, red = true, green = false, someshit = false;
+Boolean blue = false, red = true, green = false, someshit = false, menuButtons = false;
 ArrayList<Radar>radars = new ArrayList<Radar>();
 ArrayList<Radar>radarTexts = new ArrayList<Radar>();
 ArrayList<Menu>buttons = new ArrayList<Menu>();
@@ -29,6 +30,7 @@ void draw()
   background(0,0);
   drawRadar();
   drawMenu();
+  drawCamera();
 }
 
 void keyPressed()
