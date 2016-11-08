@@ -8,25 +8,32 @@ class Menu
   Menu()
   {
     x = -100;
-    y = height/3;
+    y = height/5;
+  }
+  
+  void draw()
+  {
+    Radar radar = radars.get(0);
+    stroke(radar.c);
+    noFill();
+    rect(x, y, 240, height/1.5 );
   }
 }
 
 void drawMenu()
 {
-  
-  if(mouseX < 80 && tab.x <= 0)
+  tab.draw();
+  menuNav();
+}
+
+void menuNav()
+{
+  if(mouseX < 240 && tab.x < - 4)
   {
-    rect(tab.x, tab.y, 80, 200);
-    tab.x += 0.8;
-    
+    tab.x += 4;
   }
-  else
+  else if(mouseX > 240 && tab.x < 20 && tab.x > -240)
   {
-    if(tab.x > -100)
-    {
-      tab.x -= 0.8;
-    }
-  
+    tab.x -= 6;
   }
 }

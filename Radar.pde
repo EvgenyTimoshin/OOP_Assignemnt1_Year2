@@ -47,7 +47,7 @@ class Radar
     for(int i = 0 ; i < trailLength ; i ++)
     {   
       float lineTheta = theta - (i * 0.009f);
-      stroke(0, 0, 255 - (i * intensityChange), 150 - (i * intensityChange));
+      stroke(c , 100 - (i * intensityChange));
       float x = rx + sin(lineTheta) * radarRadius ;
       float y = ry - cos(lineTheta) * radarRadius ;
       line(rx, ry, x, y);
@@ -85,18 +85,19 @@ class Radar
 //Methods
 void setupRadar()
 {
-    Radar r = new Radar(200, width/2, height/2, (color(0, 0 ,255 )), 255, 0.0f, 0.01f,3,"");
-    radars.add(r);
-
+  int radarLocX = width - width/9;
+  int radarLocY = height/2;
+  int radarSize = 150;
+  Radar r = new Radar(radarSize, radarLocX, radarLocY, (color(0, 0 ,255 )), 255, 0.0f, 0.01f,3,"");
+  radars.add(r);
   
-  
-  Radar text1 = new Radar(200, width/2, height/2, (color(0, 0, 255)), 255, TWO_PI, 0.01f, 3, "N");
+  Radar text1 = new Radar(radarSize, radarLocX, radarLocY, (color(0, 0, 255)), 255, TWO_PI, 0.01f, 3, "N");
   radarTexts.add(text1);
-  Radar text2 = new Radar(200, width/2, height/2, (color(0, 0, 255)), 255, PI, 0.01f, 3, "S");
+  Radar text2 = new Radar(radarSize, radarLocX, radarLocY, (color(0, 0, 255)), 255, PI, 0.01f, 3, "S");
   radarTexts.add(text2);
-  Radar text3 = new Radar(200, width/2, height/2, (color(0, 0, 255)), 255, HALF_PI, 0.01f, 3, "E");
+  Radar text3 = new Radar(radarSize, radarLocX, radarLocY, (color(0, 0, 255)), 255, HALF_PI, 0.01f, 3, "E");
   radarTexts.add(text3);
-  Radar text4 = new Radar(200, width/2, height/2, (color(0, 0, 255)), 255, QUARTER_PI*6, 0.01f, 3, "W");
+  Radar text4 = new Radar(radarSize, radarLocX, radarLocY, (color(0, 0, 255)), 255, QUARTER_PI*6, 0.01f, 3, "W");
   radarTexts.add(text4);
 }
 
@@ -136,4 +137,8 @@ void radarChangeColor()
   object.c = c;
   radars.add(object);
   
+  for(Radar obj: radarTexts)
+  {
+    obj.c = c;
+  }
 }
