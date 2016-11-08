@@ -11,14 +11,17 @@ void setup()
   //size(600, 600);
   smooth();
   //
-  frameRate(2);
+  frameRate(60);
   background(0);
   setupRadar();
+  createButtons();
+  
   tab = new Menu();
 }
 Boolean blue = false, red = true, green = false, someshit = false;
 ArrayList<Radar>radars = new ArrayList<Radar>();
 ArrayList<Radar>radarTexts = new ArrayList<Radar>();
+ArrayList<Menu>buttons = new ArrayList<Menu>();
 Float radarLoc;
 
 void draw()

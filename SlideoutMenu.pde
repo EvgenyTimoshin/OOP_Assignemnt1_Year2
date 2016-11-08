@@ -4,11 +4,14 @@ class Menu
 {
   float x;
   float y;
+  float size;
+  
   
   Menu()
   {
     x = -100;
     y = height/5;
+    size = 240;
   }
   
   void draw()
@@ -16,13 +19,27 @@ class Menu
     Radar radar = radars.get(0);
     stroke(radar.c);
     noFill();
-    rect(x, y, 240, height/1.5 );
+    rect(x, y, size, height/1.5 );
+  }
+  
+  void drawButtons()
+  {
+    Radar radar = radars.get(0);
+    stroke(radar.c);
+    noFill();
+    rect(x, y, size, size);
   }
 }
 
 void drawMenu()
 {
   tab.draw();
+  
+  for(Menu button: buttons)
+  {
+    button.drawButtons();
+  }
+  
   menuNav();
 }
 
@@ -36,4 +53,17 @@ void menuNav()
   {
     tab.x -= 6;
   }
+}
+
+void createButtons()
+{
+  for(int i = 0; i < 4; i++)
+  {
+    Menu button = new Menu();
+    button.x = 60;
+    button.size = 100;
+    button.y = height/4 + height/6.5 * i;
+    buttons.add(button);
+  }
+
 }
