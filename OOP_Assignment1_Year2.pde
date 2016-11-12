@@ -18,27 +18,43 @@ void setup()
   createWindows();
   image = loadImage("hiresspace.jpg");
   //wsetupCamera();
+  setupUi();
   
   tab = new Menu();
 }
+
+//GLOBAL VARS
+
 Boolean blue = false, red = true, green = false, someshit = false, menuButtons = false;
+Boolean stopX = false, stopY = true;
 ArrayList<Radar>radars = new ArrayList<Radar>();
 ArrayList<Radar>radarTexts = new ArrayList<Radar>();
 ArrayList<Menu>buttons = new ArrayList<Menu>();
 ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>();
 Float radarLoc;
- PImage image;
+PImage image;
+int gameState = 0;
  
 void draw()
 {
-  background(10);
-  drawInterior();
-  drawRadar();
-  drawFrontDisp();
-  drawMenu();
-  //drawCamera();
   
-  uiOutline();
+  switch(gameState)
+  {
+    case 0: background(0);
+            uiOutline();
+            break;
+            
+    case 1: background(10);
+            uiOutline();
+            drawInterior();
+            drawRadar();
+            drawFrontDisp();
+            drawMenu();
+            break;
+  }
+  
+  
+  //drawCamera();
   
 }
 
@@ -70,3 +86,9 @@ void keyPressed()
     radarChangeColor();
   }
 }
+
+void setupUi()
+{
+  xL = width/2;
+  xR = width/2;
+}  

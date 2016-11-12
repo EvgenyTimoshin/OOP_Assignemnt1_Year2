@@ -47,10 +47,36 @@ void drawInterior()
     
 }
 
+float xL;
+float xR;
+
 void uiOutline()
 {
+  Radar r = radars.get(0);
   pushMatrix();
-  translate(0,0,+2);
-  strokeWeight(20);
+  translate(0, 0 , +1);
+  stroke(r.c);
+  strokeWeight(8);
+  
+  line(xL, 0 + height/40, width/2 , 0 + height/40);
+  line(xR, 0 + height/40, width/2 , 0 + height/40);
+  
+  if(stopX == false)
+  {
+    xL -= 5;
+    xR += 5;
+  }
+  
+  if(xR > width/2 + width/10)
+  {
+    stopX = true;
+    stopY = false;
+  }
+  endShape();
   popMatrix();
+  strokeWeight(1);
+  if(xL <= 0)
+  {
+    gameState = 1;
+  }
 }
