@@ -28,6 +28,7 @@ class Menu
     stroke(radar.c, 150);
     noFill();
     rect(x, y, size, size);
+    
   }
 }
 

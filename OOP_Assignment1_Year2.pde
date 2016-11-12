@@ -9,13 +9,13 @@ void setup()
 {
   fullScreen();
   //size(600, 600);
-  smooth();
-  //
+  //smooth();
   frameRate(120);
   background(0);
   setupRadar();
   createButtons();
-  setupCamera();
+  createWindows();
+  //wsetupCamera();
   
   tab = new Menu();
 }
@@ -23,6 +23,7 @@ Boolean blue = false, red = true, green = false, someshit = false, menuButtons =
 ArrayList<Radar>radars = new ArrayList<Radar>();
 ArrayList<Radar>radarTexts = new ArrayList<Radar>();
 ArrayList<Menu>buttons = new ArrayList<Menu>();
+ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>();
 Float radarLoc;
 
 void draw()
@@ -30,7 +31,8 @@ void draw()
   background(0,0);
   drawRadar();
   drawMenu();
-  drawCamera();
+  drawFrontDisp();
+  //drawCamera();
 }
 
 void keyPressed()
