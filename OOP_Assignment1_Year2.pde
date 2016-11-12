@@ -7,14 +7,16 @@ Date started 24/10/2016 - current
 
 void setup()
 {
-  fullScreen();
-  //size(600, 600);
-  //smooth();
-  frameRate(120);
+  fullScreen(P3D);
+  //size(1920, 1080 , P3D);
+  smooth();
+  frameRate(60);
   background(0);
+  //textureMode(IMAGE);
   setupRadar();
   createButtons();
   createWindows();
+  image = loadImage("hiresspace.jpg");
   //wsetupCamera();
   
   tab = new Menu();
@@ -25,14 +27,19 @@ ArrayList<Radar>radarTexts = new ArrayList<Radar>();
 ArrayList<Menu>buttons = new ArrayList<Menu>();
 ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>();
 Float radarLoc;
-
+ PImage image;
+ 
 void draw()
 {
-  background(0,0);
+  background(10);
+  drawInterior();
   drawRadar();
-  drawMenu();
   drawFrontDisp();
+  drawMenu();
   //drawCamera();
+  
+  uiOutline();
+  
 }
 
 void keyPressed()

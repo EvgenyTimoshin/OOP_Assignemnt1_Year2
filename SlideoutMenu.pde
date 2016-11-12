@@ -18,8 +18,8 @@ class Menu
   {
     Radar radar = radars.get(0);
     stroke(radar.c);
-    noFill();
-    rect(x, y, size, height/1.5 );
+    fill(0);
+    rect(x, y, size, height/1.5);
   }
   
   void drawButtons()
