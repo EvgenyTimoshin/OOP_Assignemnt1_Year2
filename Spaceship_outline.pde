@@ -8,7 +8,7 @@ void drawInterior()
     s = createShape();
     s.beginShape();
     //s.noFill();
-    s.stroke(255);
+    s.stroke(0);
     
     s.texture(image);
     s.vertex(width/2 - width/4, 0 + height/15,850,0);
@@ -22,7 +22,7 @@ void drawInterior()
     s.beginShape();
     
     s.texture(image);
-    s.stroke(255);
+    s.stroke(0);
     
     s.vertex(width/2 + width/3.7, 0 + height/14.9, 1750, 0);
     s.vertex(width/2 + width/5.2, 0 + height/2, 1730, 800);
@@ -33,7 +33,7 @@ void drawInterior()
     ////////////////////////////////////////////
     s = createShape();
     s.beginShape();
-    s.stroke(255);
+    s.stroke(0);
     s.texture(image);
     
     s.vertex(width/2 - width/3.7, 0 + height/14.9, 800, 0 );
@@ -70,7 +70,6 @@ void uiOutline()
   if(xR > width/2 + width/10)
   {
     stopX = true;
-    stopY = false;
   }
   endShape();
   popMatrix();

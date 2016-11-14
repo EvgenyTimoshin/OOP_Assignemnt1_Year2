@@ -17,7 +17,7 @@ void setup()
   createButtons();
   createWindows();
   image = loadImage("hiresspace.jpg");
-  //wsetupCamera();
+  //setupCamera();
   setupUi();
   
   tab = new Menu();
@@ -33,7 +33,7 @@ ArrayList<Menu>buttons = new ArrayList<Menu>();
 ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>();
 Float radarLoc;
 PImage image;
-int gameState = 0;
+int gameState = 1;
  
 void draw()
 {
@@ -50,12 +50,28 @@ void draw()
             drawRadar();
             drawFrontDisp();
             drawMenu();
+            drawSphere();
             break;
   }
   
   
   //drawCamera();
   
+}
+
+void drawSphere()
+{
+  pushMatrix();
+  translate(width/2, height/2 + 200);
+  fill(255, 0 , 0);
+  sphere(100);
+  popMatrix();
+  
+  pushMatrix();
+  translate(width/2, height/2 + 200,+300);
+  fill(0, 255, 0 );
+  sphere(50);
+  popMatrix();
 }
 
 void keyPressed()
