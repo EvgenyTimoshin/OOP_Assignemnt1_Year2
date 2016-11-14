@@ -57,7 +57,8 @@ void draw()
             drawRadar();
             drawFrontDisp();
             drawMenu();
-            drawSphere();
+            //drawSphere();
+            drawPlanets();
             break;
   }
   
