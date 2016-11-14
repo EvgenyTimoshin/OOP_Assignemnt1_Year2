@@ -16,6 +16,7 @@ void setup()
   setupRadar();
   createButtons();
   createWindows();
+  createPlanets();
   image = loadImage("hiresspace.jpg");
   //setupCamera();
   setupUi();
@@ -24,16 +25,22 @@ void setup()
 }
 
 //GLOBAL VARS
-
+//Bool
 Boolean blue = false, red = true, green = false, someshit = false, menuButtons = false;
 Boolean stopX = false, stopY = true;
+
+//ArrayLists
 ArrayList<Radar>radars = new ArrayList<Radar>();
 ArrayList<Radar>radarTexts = new ArrayList<Radar>();
 ArrayList<Menu>buttons = new ArrayList<Menu>();
 ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>();
+ArrayList<Planet>planets = new ArrayList<Planet>();
+//Other
+
 Float radarLoc;
 PImage image;
 int gameState = 1;
+
  
 void draw()
 {
