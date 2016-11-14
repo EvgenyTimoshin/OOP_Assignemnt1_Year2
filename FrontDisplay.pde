@@ -20,7 +20,6 @@ class FrontDisplay
     s.beginShape();
     s.noFill();
     s.stroke(r.c);
-    
     s.vertex(x, y + size/4);
     s.vertex(x + size/4, y - size);
     s.vertex(width/2 + size*.75, y - size);
@@ -33,7 +32,7 @@ class FrontDisplay
 
 void createWindows()
 {
-  int x = 300;
+  int x = 330;
   for(int i = 0; i < 3; i ++)
   {
     FrontDisplay disp = new FrontDisplay(width / 2 - x, height - 100, x);

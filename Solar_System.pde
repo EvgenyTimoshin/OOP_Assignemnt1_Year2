@@ -25,13 +25,13 @@ class Planet
     pushMatrix();
     fill(c);
     translate(x, loc.y, z);
-    rotateX(speed);
-    rotateY(speed/3);
+    rotateX(theta/5);
+    rotateY(theta);
     sphereDetail(15);
+    stroke(0,120);
     sphere(size);
     popMatrix();
     theta += speed;
-    
   }
   
   void update()
@@ -42,6 +42,7 @@ class Planet
     }
     if(solarScale == false && mouseX < width/2 + 100 && mouseX > width/2 - 100 && mouseY < height/2 + 290 && mouseY > height/2 - 90)
     {
+      solarmap = true;
       for(Planet r: planets)
       {
         r.size = r.size * 1.02;
@@ -56,6 +57,7 @@ class Planet
     }
     if (solarScale == true && (mouseX > width/2 + 100 || mouseX < width/2 - 100 || mouseY > height/2 + 290 || mouseY < height/2 - 90))
     {
+      solarmap = false;
       for(Planet r: planets)
       {
         r.size = r.size / 1.05;

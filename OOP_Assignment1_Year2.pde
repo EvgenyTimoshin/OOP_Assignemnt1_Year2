@@ -29,6 +29,7 @@ void setup()
 Boolean blue = false, red = true, green = false, someshit = false, menuButtons = false;
 Boolean stopX = false, stopY = true;
 Boolean solarScale = false;
+Boolean solarmap = false;
 
 //ArrayLists
 ArrayList<Radar>radars = new ArrayList<Radar>();
@@ -53,17 +54,21 @@ void draw()
             break;
             
     case 1: background(10);
-            uiOutline();
-            drawInterior();
-            drawRadar();
-            drawFrontDisp();
-            drawMenu();
+            if(solarmap == false)
+            {
+              uiOutline();
+              drawInterior();
+              drawRadar();
+              drawFrontDisp();
+              drawMenu();
+            }
             //drawSphere();
             drawPlanets();
             break;
   }
-  Planet r = planets.get(0);
-  println(r.size);
+  Planet r = planets.get(7);
+  float z = 0 - cos(r.theta) * r.loc.z ;
+  println(z);
   //drawCamera();
   
 }
