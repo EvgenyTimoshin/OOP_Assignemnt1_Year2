@@ -7,8 +7,8 @@ Date started 24/10/2016 - current
 
 void setup()
 {
-  fullScreen(P3D);
-  //size(1920, 1080 , P3D);
+  //fullScreen(P3D);
+  size(1920, 1080 , P3D);
   smooth();
   frameRate(60);
   background(0);
@@ -28,6 +28,7 @@ void setup()
 //Bool
 Boolean blue = false, red = true, green = false, someshit = false, menuButtons = false;
 Boolean stopX = false, stopY = true;
+Boolean solarScale = false;
 
 //ArrayLists
 ArrayList<Radar>radars = new ArrayList<Radar>();
@@ -62,7 +63,7 @@ void draw()
             break;
   }
   
-  
+  println(solarScale);
   //drawCamera();
   
 }
