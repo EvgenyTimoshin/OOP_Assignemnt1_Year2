@@ -1,6 +1,7 @@
 class Planet
 {
   float size;
+  float sizeMax, sizeMin;
   float theta;
   float speed;
   PVector loc;
@@ -8,6 +9,8 @@ class Planet
   
   Planet (float size, float x , float y, float z, color c, float theta,float speed)
   {
+     this.sizeMax = size * 2;
+     this.sizeMin = size;
      this.size = size;
      this.loc = new PVector(x , y, z);
      this.c = c;
@@ -34,25 +37,36 @@ class Planet
   void update()
   {
     if(mouseX < width/2 + 100 && mouseX > width/2 - 100 && mouseY < height/2 + 290 && mouseY > height/2 - 90)
+    {
+    
+    }
     if(solarScale == false && mouseX < width/2 + 100 && mouseX > width/2 - 100 && mouseY < height/2 + 290 && mouseY > height/2 - 90)
     {
       for(Planet r: planets)
       {
-        r.size = r.size * 2;
-        r.loc.z = r.loc.z * 2;
-        
+        r.size = r.size * 1.02;
+        r.loc.z = r.loc.z * 1.02;
       }
-      solarScale = true;
+      
+      Planet r = planets.get(0);
+      if(r.size >= r.sizeMax)
+      {
+        solarScale = true;
+      }
     }
     if (solarScale == true && (mouseX > width/2 + 100 || mouseX < width/2 - 100 || mouseY > height/2 + 290 || mouseY < height/2 - 90))
     {
       for(Planet r: planets)
       {
-        r.size = r.size /2;
-        r.loc.z = r.loc.z / 2;
+        r.size = r.size / 1.05;
+        r.loc.z = r.loc.z / 1.05;
       }
       
-      solarScale = false;
+      Planet r = planets.get(0);
+      if(r.size <= r.sizeMin)
+      {
+        solarScale = false;
+      }
     }
   }
 }
@@ -67,8 +81,8 @@ void createPlanets()
   
   for(int i = 0; i < 7; i ++)
   {
-    float size = random(3, 22);
-    distanceZ += size + 15;
+    float size = random(3, 19);
+    distanceZ += size*2;
     Planet p = new Planet(size, width/2, height/2 + 200, distanceZ, color(random(255), random(255), random(255)), random(0, 3.14), random(0.008f, 0.04f));
     planets.add(p);
   }

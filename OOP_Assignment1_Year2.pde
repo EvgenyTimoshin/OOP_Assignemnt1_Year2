@@ -7,8 +7,8 @@ Date started 24/10/2016 - current
 
 void setup()
 {
-  //fullScreen(P3D);
-  size(1920, 1080 , P3D);
+  fullScreen(P3D);
+  //size(1920, 1080 , P3D);
   smooth();
   frameRate(60);
   background(0);
@@ -62,8 +62,8 @@ void draw()
             drawPlanets();
             break;
   }
-  
-  println(solarScale);
+  Planet r = planets.get(0);
+  println(r.size);
   //drawCamera();
   
 }
