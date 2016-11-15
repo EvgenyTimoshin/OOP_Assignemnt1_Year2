@@ -1,8 +1,9 @@
 size,distanceFromStar,rotangle,orbitspeed,sizeMax,sizeMin,red,green,blue,name,age,mass,resourcelevel,description,daycycle
-50,0,3.14,0.001,100,50,219,106,40,Andromeda,15.3 billion,850392 kilo tonnes,low,The biggest star in the milkyway galaxy,105hrs
-5,100,2.7,0.004,10,5,203,31,65,Icarus,5.1 billion, 7654 kilo tonnes,low,Closest planet to Andromeda not habitable,43 hrs
-13,130,1.3,0.003,26,13,208,3,255,Elvina,3.4 billion, 90043 kilo tonnes,medium,A naturally teraformed planet filled with diamond,54hrs
-8,160,0.2,0.01,16,8,3,255,240,Terraria,10.4 billion, 6540 kilo tonnes,high,A habitable planet by biological creatures full of water and vegetation,21hrs
-15,190,2.8,0.008,30,15,195,255,3,Kala,6.2 billion, 3450 kilo tonnes, medium,Closest planet to terraria in habitability,89hrs
-22,215,3,0.002,44,22,3,255,29,Wate,2.1 billion, 9830 kilo tonnes, high,Extremely hot planet full of natural atomic gases,48hrs
-2,260,2.8,0.009,4,2,65,201,3,Krat,1.8 billion, 7654 kilo tonnes, low,Frozen rock,205hrs
+50,0,3.14,0.001,100,50,219,106,40,,15.3 billion,850392,low,The biggest star in the milkyway galaxy,105hrs
+5,100,2.7,0.004,10,5,203,31,65,Icarus,5.1 billion,7654,low,Closest planet to Andromeda not habitable,43 hrs
+13,130,1.3,0.003,26,13,208,3,255,Elvina,3.4 billion,90043,medium,A naturally teraformed planet filled with diamond,54hrs
+8,160,0.2,0.01,16,8,3,255,240,Terraria,10.4 billion,6540,high,A habitable planet by biological creatures full of water and vegetation,21hrs
+15,190,2.8,0.008,30,15,195,255,3,Kala,6.2 billion,3450, medium,Closest planet to terraria in habitability,89hrs
+22,215,3,0.002,44,22,3,255,29,Wate,2.1 billion,9830, high,Extremely hot planet full of natural atomic gases,48hrs
+2,260,2.8,0.009,4,2,65,201,3,Krat,1.8 billion,7654, low,Frozen rock,205hrs
+

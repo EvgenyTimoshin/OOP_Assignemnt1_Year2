@@ -46,7 +46,7 @@ int gameState = 1;
  
 void draw()
 {
-  
+  //lights();
   switch(gameState)
   {
     case 0: background(0);
@@ -62,9 +62,14 @@ void draw()
               drawFrontDisp();
               drawMenu();
             }
+            else
+            {
+             //drawSolarGraph();
+            }
             drawPlanets();
             break;
   }
+  
   //drawCamera();
 }
 
