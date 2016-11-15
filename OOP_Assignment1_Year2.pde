@@ -65,11 +65,7 @@ void draw()
             drawPlanets();
             break;
   }
-  Planet r = planets.get(6);
-  float z = 0 - cos(r.theta) * r.loc.z ;
-  println(z);
   //drawCamera();
-  
 }
 
 void keyPressed()

@@ -6,16 +6,21 @@ class Planet
   float speed;
   PVector loc;
   color c;
-  String name;
+  String name,age,mass,resourcelevel,description,daycycle;
   
   Planet (TableRow row)
   {
      this.name = row.getString("name");
+     this.age = row.getString("age");
+     this.mass = row.getString("mass");
      this.sizeMax = row.getFloat("sizeMax");
+     this.resourcelevel = row.getString("resourcelevel");
+     this.description = row.getString("description");
+     this.daycycle = row.getString("daycycle");
      this.sizeMin = row.getFloat("sizeMin");
      this.size = row.getFloat("size");
      this.loc = new PVector(width/2, height/2 + 190,row.getFloat("distanceFromStar"));
-     this.c = color(random(255), random(255), random(255));
+     this.c = color(row.getInt("red"), row.getInt("green"),row.getInt("blue"));
      this.theta = row.getFloat("rotangle");
      this.speed = row.getFloat("orbitspeed");
   }
@@ -29,11 +34,12 @@ class Planet
     translate(x, loc.y, z);
     rotateX(theta/5);
     rotateY(theta);
-    sphereDetail(15);
+    sphereDetail(20);
     stroke(0,120);
     sphere(size);
     popMatrix();
     theta +=speed;
+    println(c);
   }
   
   void update()
@@ -84,8 +90,7 @@ void createPlanets()
     Planet p = new Planet(row);
     planets.add(p);
   }
-  Planet p = planets.get(0);
-  p.c = color(#E9F0A0);
+  
 }
 
 void drawPlanets()
