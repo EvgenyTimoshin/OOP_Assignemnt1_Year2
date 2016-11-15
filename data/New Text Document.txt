@@ -1,0 +1,7 @@
+size,distanceFromStar,rotangle,orbitspeed,sizeMax,sizeMin,colour,name
+50,0,3.14,0,100,50,#FF6200,Andromeda
+5,100,2.7,0.004,10,5,#FF0B03,Icarus
+13,130,1.3,0.003,13,#77FF03,Elvina
+8,140,0.2,0.01,8,#0337FF,Terraria
+35,185,2.8,0.008,35,#E9FF03,Kala
+22,215,3,0.02,22,#03FF1D,Wate

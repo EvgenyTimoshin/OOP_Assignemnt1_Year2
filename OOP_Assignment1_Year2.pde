@@ -62,30 +62,14 @@ void draw()
               drawFrontDisp();
               drawMenu();
             }
-            //drawSphere();
             drawPlanets();
             break;
   }
-  Planet r = planets.get(7);
+  Planet r = planets.get(6);
   float z = 0 - cos(r.theta) * r.loc.z ;
   println(z);
   //drawCamera();
   
-}
-
-void drawSphere()
-{
-  pushMatrix();
-  translate(width/2, height/2 + 200);
-  fill(255, 0 , 0);
-  sphere(100);
-  popMatrix();
-  
-  pushMatrix();
-  translate(width/2, height/2 + 200,+300);
-  fill(0, 255, 0 );
-  sphere(50);
-  popMatrix();
 }
 
 void keyPressed()
@@ -116,9 +100,3 @@ void keyPressed()
     radarChangeColor();
   }
 }
-
-void setupUi()
-{
-  xL = width/2;
-  xR = width/2;
-}  

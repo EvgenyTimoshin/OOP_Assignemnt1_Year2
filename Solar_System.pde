@@ -6,21 +6,23 @@ class Planet
   float speed;
   PVector loc;
   color c;
+  String name;
   
-  Planet (float size, float x , float y, float z, color c, float theta,float speed)
+  Planet (TableRow row)
   {
-     this.sizeMax = size * 2;
-     this.sizeMin = size;
-     this.size = size;
-     this.loc = new PVector(x , y, z);
-     this.c = c;
-     this.theta = theta;
-     this.speed = speed;
+     this.name = row.getString("name");
+     this.sizeMax = row.getFloat("sizeMax");
+     this.sizeMin = row.getFloat("sizeMin");
+     this.size = row.getFloat("size");
+     this.loc = new PVector(width/2, height/2 + 190,row.getFloat("distanceFromStar"));
+     this.c = color(random(255), random(255), random(255));
+     this.theta = row.getFloat("rotangle");
+     this.speed = row.getFloat("orbitspeed");
   }
   
   void render()
   {
-    float x = width/2 + sin(theta) * loc.z ;
+    float x = width/2 + sin(theta) * loc.z;
     float z = 0 - cos(theta) * loc.z ;
     pushMatrix();
     fill(c);
@@ -31,7 +33,7 @@ class Planet
     stroke(0,120);
     sphere(size);
     popMatrix();
-    theta += speed;
+    theta +=speed;
   }
   
   void update()
@@ -40,7 +42,7 @@ class Planet
     {
     
     }
-    if(solarScale == false && mouseX < width/2 + 100 && mouseX > width/2 - 100 && mouseY < height/2 + 290 && mouseY > height/2 - 90)
+    if(solarScale == false && mouseX < width/2 + 100 && mouseX > width/2 - 50 && mouseY < height/2 + 290 && mouseY > height/2 - 90)
     {
       solarmap = true;
       for(Planet r: planets)
@@ -76,18 +78,14 @@ class Planet
 void createPlanets()
 {
   planets.clear();
-  
-  Planet Sun = new Planet(50, width/2, height/2 + 190, 0, (#FF680A), 0.0f, 0);
-  planets.add(Sun);
-  int distanceZ = 100;
-  
-  for(int i = 0; i < 7; i ++)
+  Table table = loadTable("planetInfo.csv","header");
+  for(TableRow row: table.rows())
   {
-    float size = random(3, 19);
-    distanceZ += size*2;
-    Planet p = new Planet(size, width/2, height/2 + 200, distanceZ, color(random(255), random(255), random(255)), random(0, 3.14), random(0.008f, 0.04f));
+    Planet p = new Planet(row);
     planets.add(p);
   }
+  Planet p = planets.get(0);
+  p.c = color(#E9F0A0);
 }
 
 void drawPlanets()

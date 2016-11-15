@@ -79,3 +79,9 @@ void uiOutline()
     gameState = 1;
   }
 }
+
+void setupUi()
+{
+  xL = width/2;
+  xR = width/2;
+}  
