@@ -5,6 +5,8 @@ class Menu
   float x;
   float y;
   float size;
+  String text;
+  color c;
   
   
   Menu()
@@ -28,7 +30,7 @@ class Menu
     stroke(radar.c, 150);
     noFill();
     rect(x, y, size, size);
-    
+    text(text, x + size/6, y + size/2);
   }
 }
 
@@ -80,5 +82,32 @@ void createButtons()
     button.y = height/4 + height/6.5 * i;
     buttons.add(button);
   }
+  
+  //Solar buttons
+  
+  solarButton1 = new Menu();
+  solarButton1.x = 50;
+  solarButton1.size = 80;
+  solarButton1.y = height/2 + 70;
+  solarButton1.text = "Dist F star";
+  
+  
+  solarButton2 = new Menu();
+  solarButton2.x = 170;
+  solarButton2.size = 80;
+  solarButton2.y = height/2 + 70;
+  solarButton2.text = "Mass";
+  
+  solarButton3 = new Menu();
+  solarButton3.x = 290;
+  solarButton3.size = 80;
+  solarButton3.y = height/2 + 70;
+  solarButton3.text = "Age";
+  
+  solarButton4 = new Menu();
+  solarButton4.x = 410;
+  solarButton4.size = 80;
+  solarButton4.y = height/2 + 70;
+  solarButton4.text = "dayCycle";
 
 }

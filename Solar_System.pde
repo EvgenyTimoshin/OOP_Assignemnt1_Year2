@@ -121,18 +121,23 @@ void drawPlanets()
 
 void drawSolarGraph()
 {
-  float x = 0;
-  float barW = (width/2)/planets.size();
-  float scale = (height/2)/850392;
+  solarButton1.drawButtons();
+  solarButton2.drawButtons();
+  solarButton3.drawButtons();
+  solarButton4.drawButtons();
   
-   for(int i = 0; i < planets.size(); i++)
+  float x = 50;
+  float barW = (width/2)/planets.size();
+  float scale = (height/2)/300;
+  
+   for(int i = 1; i < planets.size(); i++)
   {
     
     Planet planet;
     planet = planets.get(i);
     fill(planet.c);
-    rect(x, height/2, barW,-planet.mass*scale);
-    
+    rect(x, height/2, barW,-map(planet.mass,0, 9830,0,width/4));
+    println(planet.mass);
     x += barW;
   }
 }

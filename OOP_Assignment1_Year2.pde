@@ -42,6 +42,8 @@ ArrayList<Planet>planets = new ArrayList<Planet>();
 Float radarLoc;
 PImage image;
 int gameState = 1;
+Menu solarButton1, solarButton2, solarButton3, solarButton4;
+
 
  
 void draw()
@@ -64,7 +66,7 @@ void draw()
             }
             else
             {
-             //drawSolarGraph();
+               drawSolarGraph();
             }
             drawPlanets();
             break;
