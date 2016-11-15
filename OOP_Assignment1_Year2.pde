@@ -31,6 +31,7 @@ Boolean stopX = false, stopY = true;
 Boolean solarScale = false;
 Boolean solarmap = false;
 
+
 //ArrayLists
 ArrayList<Radar>radars = new ArrayList<Radar>();
 ArrayList<Radar>radarTexts = new ArrayList<Radar>();

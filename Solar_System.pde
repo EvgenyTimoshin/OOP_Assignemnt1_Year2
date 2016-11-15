@@ -6,8 +6,8 @@ class Planet
   float speed;
   PVector loc;
   color c;
-  String name,resourcelevel,description,daycycle;
-  float age, mass;
+  String name,resourcelevel,description;
+  float age, mass, daycycle;
   
   Planet (TableRow row)
   {
@@ -17,7 +17,7 @@ class Planet
      this.sizeMax = row.getFloat("sizeMax");
      this.resourcelevel = row.getString("resourcelevel");
      this.description = row.getString("description");
-     this.daycycle = row.getString("daycycle");
+     this.daycycle = row.getFloat("daycycle");
      this.sizeMin = row.getFloat("sizeMin");
      this.size = row.getFloat("size");
      this.loc = new PVector(width/2, height/2 + 190,row.getFloat("distanceFromStar"));
@@ -119,6 +119,8 @@ void drawPlanets()
   }
 }
 
+Boolean solarMassGraph = false, solarDistGraph = false, solarCycleGraph = false, solarAgeGraph = false; 
+
 void drawSolarGraph()
 {
   solarButton1.drawButtons();
@@ -126,18 +128,160 @@ void drawSolarGraph()
   solarButton3.drawButtons();
   solarButton4.drawButtons();
   
+  if(mouseX > solarButton1.x - solarButton1.size && mouseX < solarButton1.x + solarButton1.size
+     && mouseY > solarButton1.y - solarButton1.size && mouseY < solarButton1.y + solarButton1.size)
+  {
+    
+    if(mousePressed)
+    {
+      solarDistGraph = true;
+      solarCycleGraph = false;
+      solarAgeGraph = false;
+      solarMassGraph = false;
+    }
+  }
+
+  
+  if(mouseX > solarButton2.x - solarButton2.size && mouseX < solarButton2.x + solarButton2.size
+     && mouseY > solarButton2.y - solarButton2.size && mouseY < solarButton2.y + solarButton2.size)
+  {
+    if(mousePressed)
+    {
+      solarMassGraph = true;
+      solarDistGraph = false;
+      solarCycleGraph = false;
+      solarAgeGraph = false;
+    }
+  }
+  
+  if(mouseX > solarButton3.x - solarButton3.size && mouseX < solarButton3.x + solarButton3.size
+     && mouseY > solarButton3.y - solarButton3.size && mouseY < solarButton3.y + solarButton3.size)
+  {
+    if(mousePressed)
+    {
+      solarAgeGraph = true;
+      solarDistGraph = false;
+      solarCycleGraph = false;
+      solarMassGraph = false;
+    }
+  }
+  
+  if(mouseX > solarButton4.x - solarButton4.size && mouseX < solarButton4.x + solarButton4.size
+     && mouseY > solarButton4.y - solarButton4.size && mouseY < solarButton4.y + solarButton4.size)
+  {
+    if(mousePressed)
+    {
+      solarCycleGraph = true;
+      solarDistGraph = false;
+      solarAgeGraph = false;
+      solarMassGraph = false;
+    }
+  }
+  
+  if(solarMassGraph)
+  {
+    drawSolarMassGraph();
+  }
+  else if(solarDistGraph)
+  {
+    drawSolarDistGraph();
+  }
+  else if(solarAgeGraph)
+  {
+    drawSolarAgeGraph();
+  }
+  else if(solarCycleGraph)
+  {
+    drawSolarCycleGraph();
+  }
+  
+  
+}
+
+void drawSolarDistGraph()
+{
   float x = 50;
   float barW = (width/2)/planets.size();
-  float scale = (height/2)/300;
   
    for(int i = 1; i < planets.size(); i++)
-  {
+   {
+    
+    Planet planet;
+    planet = planets.get(i);
+    fill(planet.c);
+    rect(x, height/2, barW,-map(planet.loc.z,0, 260*2,0,width/4));
+    if(planet.name != null)
+    {
+      textSize(20);
+      text(planet.name, x+planet.size/5 , height/2 + 20);
+    }
+    println(planet.mass);
+    x += barW;
+   }
+}
+
+void drawSolarMassGraph()
+{
+  float x = 50;
+  float barW = (width/2)/planets.size();
+  
+   for(int i = 1; i < planets.size(); i++)
+   {
     
     Planet planet;
     planet = planets.get(i);
     fill(planet.c);
     rect(x, height/2, barW,-map(planet.mass,0, 9830,0,width/4));
+    if(planet.name != null)
+    {
+      textSize(20);
+      text(planet.name, x+planet.size/5 , height/2 + 20);
+    }
     println(planet.mass);
     x += barW;
-  }
+   }
+}
+
+void drawSolarAgeGraph()
+{
+  float x = 50;
+  float barW = (width/2)/planets.size();
+  
+   for(int i = 1; i < planets.size(); i++)
+   {
+    
+    Planet planet;
+    planet = planets.get(i);
+    fill(planet.c);
+    rect(x, height/2, barW,-map(planet.age,0, 10.4,0,width/4));
+    if(planet.name != null)
+    {
+      textSize(20);
+      text(planet.name, x+planet.size/5 , height/2 + 20);
+    }
+    println(planet.mass);
+    x += barW;
+   }
+}
+
+void drawSolarCycleGraph()
+{
+   float x = 50;
+  float barW = (width/2)/planets.size();
+  
+   for(int i = 1; i < planets.size(); i++)
+   {
+    
+    Planet planet;
+    planet = planets.get(i);
+    fill(planet.c);
+    rect(x, height/2, barW,-map(planet.daycycle,0, 250,0,width/4));
+    if(planet.name != null)
+    {
+      textSize(20);
+      text(planet.name, x+planet.size/5 , height/2 + 20);
+    }
+    println(planet.mass);
+    x += barW;
+   }
 }

@@ -30,6 +30,7 @@ class Menu
     stroke(radar.c, 150);
     noFill();
     rect(x, y, size, size);
+    textSize(10);
     text(text, x + size/6, y + size/2);
   }
 }
