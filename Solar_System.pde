@@ -30,6 +30,7 @@ class Planet
   {
     float x = width/2 + sin(theta) * loc.z;
     float z = 0 - cos(theta) * loc.z ;
+    if(solarScale && name != null)
     {
       text(name, x + size*2, loc.y, z);
     }
