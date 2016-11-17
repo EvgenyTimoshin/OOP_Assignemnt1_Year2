@@ -31,7 +31,10 @@ class Menu
     noFill();
     rect(x, y, size, size);
     textSize(10);
-    text(text, x + size/6, y + size/2);
+    if(text != null)
+    {
+      text(text, x + size/6, y + size/2);
+    }
   }
 }
 

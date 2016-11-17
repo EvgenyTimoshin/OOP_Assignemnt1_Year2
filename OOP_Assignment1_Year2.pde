@@ -5,6 +5,8 @@ Student NO: c15514003
 Date started 24/10/2016 - current
 */
 
+import ddf.minim.*;
+
 void setup()
 {
   fullScreen(P3D);
@@ -22,6 +24,9 @@ void setup()
   setupUi();
   
   tab = new Menu();
+  song = new Minim(this);
+  sound = song.loadSnippet("menusong.mp3");
+  sound.play();
 }
 
 //GLOBAL VARS
@@ -40,10 +45,13 @@ ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>();
 ArrayList<Planet>planets = new ArrayList<Planet>();
 //Other
 
+
 Float radarLoc;
 PImage image;
 int gameState = 1;
 Menu solarButton1, solarButton2, solarButton3, solarButton4;
+AudioSnippet sound;
+Minim song;
 
 
  
@@ -56,7 +64,7 @@ void draw()
             uiOutline();
             break;
             
-    case 1: background(10);
+    case 1: background(0);
             if(solarmap == false)
             {
               uiOutline();
@@ -72,6 +80,8 @@ void draw()
             drawPlanets();
             break;
   }
+  
+  
   
   //drawCamera();
 }

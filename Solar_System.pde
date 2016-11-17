@@ -56,7 +56,7 @@ class Planet
     {
     
     }
-    if(solarScale == false && mouseX < width/2 + 100 && mouseX > width/2 - 50 && mouseY < height/2 + 290 && mouseY > height/2 - 90)
+    if(solarScale == false && mouseX < width/2 + 100 && mouseX > width/2 - 50 && mouseY < height/2 + 290 && mouseY > height/2 - 90 && mousePressed)
     {
       solarmap = true;
       for(Planet r: planets)
@@ -128,8 +128,8 @@ void drawSolarGraph()
   solarButton3.drawButtons();
   solarButton4.drawButtons();
   
-  if(mouseX > solarButton1.x - solarButton1.size && mouseX < solarButton1.x + solarButton1.size
-     && mouseY > solarButton1.y - solarButton1.size && mouseY < solarButton1.y + solarButton1.size)
+  if(mouseX > solarButton1.x && mouseX < solarButton1.x + solarButton1.size
+     && mouseY > solarButton1.y && mouseY < solarButton1.y + solarButton1.size)
   {
     
     if(mousePressed)
@@ -142,8 +142,8 @@ void drawSolarGraph()
   }
 
   
-  if(mouseX > solarButton2.x - solarButton2.size && mouseX < solarButton2.x + solarButton2.size
-     && mouseY > solarButton2.y - solarButton2.size && mouseY < solarButton2.y + solarButton2.size)
+  if(mouseX > solarButton2.x && mouseX < solarButton2.x + solarButton2.size
+     && mouseY > solarButton2.y && mouseY < solarButton2.y + solarButton2.size)
   {
     if(mousePressed)
     {
@@ -154,8 +154,8 @@ void drawSolarGraph()
     }
   }
   
-  if(mouseX > solarButton3.x - solarButton3.size && mouseX < solarButton3.x + solarButton3.size
-     && mouseY > solarButton3.y - solarButton3.size && mouseY < solarButton3.y + solarButton3.size)
+  if(mouseX > solarButton3.x  && mouseX < solarButton3.x + solarButton3.size
+     && mouseY > solarButton3.y  && mouseY < solarButton3.y + solarButton3.size)
   {
     if(mousePressed)
     {
@@ -166,8 +166,8 @@ void drawSolarGraph()
     }
   }
   
-  if(mouseX > solarButton4.x - solarButton4.size && mouseX < solarButton4.x + solarButton4.size
-     && mouseY > solarButton4.y - solarButton4.size && mouseY < solarButton4.y + solarButton4.size)
+  if(mouseX > solarButton4.x && mouseX < solarButton4.x + solarButton4.size
+     && mouseY > solarButton4.y && mouseY < solarButton4.y + solarButton4.size)
   {
     if(mousePressed)
     {
