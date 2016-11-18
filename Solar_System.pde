@@ -201,7 +201,7 @@ void drawSolarGraph()
 void drawSolarDistGraph()
 {
   float x = 50;
-  float barW = (width/2)/planets.size();
+  float barW = (width/3)/planets.size();
   
    for(int i = 1; i < planets.size(); i++)
    {
@@ -209,11 +209,12 @@ void drawSolarDistGraph()
     Planet planet;
     planet = planets.get(i);
     fill(planet.c);
-    rect(x, height/2, barW,-map(planet.loc.z,0, 260*2,0,width/4));
+    stroke(planet.c);
+    ellipse(x, height/2 + 30 - map(planet.loc.z,0, 260*2,0,width/4), planet.size, planet.size);
     if(planet.name != null)
     {
       textSize(20);
-      text(planet.name, x+planet.size/5 , height/2 + 20);
+      text(planet.name, x+planet.size/5 , height/2 + 50);
     }
     println(planet.mass);
     x += barW;
@@ -223,7 +224,7 @@ void drawSolarDistGraph()
 void drawSolarMassGraph()
 {
   float x = 50;
-  float barW = (width/2)/planets.size();
+  float barW = (width/3)/planets.size();
   
    for(int i = 1; i < planets.size(); i++)
    {
@@ -231,11 +232,11 @@ void drawSolarMassGraph()
     Planet planet;
     planet = planets.get(i);
     fill(planet.c);
-    rect(x, height/2, barW,-map(planet.mass,0, 9830,0,width/4));
+    rect(x, height/2 + 30, barW,-map(planet.mass,0, 9830,0,width/4));
     if(planet.name != null)
     {
       textSize(20);
-      text(planet.name, x+planet.size/5 , height/2 + 20);
+      text(planet.name, x+planet.size/5 , height/2 + 50);
     }
     println(planet.mass);
     x += barW;
@@ -245,7 +246,7 @@ void drawSolarMassGraph()
 void drawSolarAgeGraph()
 {
   float x = 50;
-  float barW = (width/2)/planets.size();
+  float barW = (width/3)/planets.size();
   
    for(int i = 1; i < planets.size(); i++)
    {
@@ -267,7 +268,7 @@ void drawSolarAgeGraph()
 void drawSolarCycleGraph()
 {
    float x = 50;
-  float barW = (width/2)/planets.size();
+  float barW = (width/3)/planets.size();
   
    for(int i = 1; i < planets.size(); i++)
    {

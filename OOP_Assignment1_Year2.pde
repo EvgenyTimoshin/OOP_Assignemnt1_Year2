@@ -19,13 +19,14 @@ void setup()
   createButtons();
   createWindows();
   createPlanets();
+  createColorBars();
   image = loadImage("hiresspace.jpg");
   //setupCamera();
   setupUi();
   
   tab = new Menu();
   song = new Minim(this);
-  sound = song.loadSnippet("menusong.mp3");
+  sound = song.loadFile("menusong.mp3");
   sound.play();
 }
 
@@ -50,7 +51,8 @@ Float radarLoc;
 PImage image;
 int gameState = 1;
 Menu solarButton1, solarButton2, solarButton3, solarButton4;
-AudioSnippet sound;
+ColorBar bar1, bar2, bar3;
+AudioPlayer sound;
 Minim song;
 
 
@@ -72,6 +74,7 @@ void draw()
               drawRadar();
               drawFrontDisp();
               drawMenu();
+              drawColorBars();
             }
             else
             {
