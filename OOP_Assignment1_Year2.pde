@@ -17,7 +17,7 @@ void setup()
   //textureMode(IMAGE);
   setupRadar();
   createButtons(); //creates all of the buttons on screen
-  createWindows(); // creates the windows of the font of the spaceship
+  createFrontDisplay(); // creates the windows of the font of the spaceship
   createPlanets(); //creates planets for the solar system map
   createColorBars(); // creates bars to adjust color to your liking
   image = loadImage("hiresspace.jpg"); //Loads in image for the windows background
@@ -37,6 +37,7 @@ Boolean stopX = false, stopY = true;
 Boolean solarScale = false;
 Boolean solarmap = false;
 Boolean engineOn = false, missiles = false, guns = false, drill = false, HDrive = false, engineControl = false;
+Boolean engineTurnedOn = false;
 //ArrayLists
 ArrayList<Radar>radars = new ArrayList<Radar>(); //Array of radars objects
 ArrayList<Radar>radarTexts = new ArrayList<Radar>(); //Array of the N,W,S,E coordinates on radar
@@ -52,6 +53,8 @@ Menu frontDispB1, frontDispB2, frontDispB3, frontDispB4, frontDispB5, frontDispB
 ColorBar bar1, bar2, bar3; // 3 Color bar objects
 AudioPlayer sound;
 Minim song;
+Loading engineLoading;
+PFont font;
 
 void draw()
 {
@@ -66,9 +69,12 @@ void draw()
             //Draws the various elements that where created in the setup
             if(solarmap == false)
             {
-              uiOutline();
-              drawInterior();
+              if(engineTurnedOn)
+              {
+                uiOutline();
+              }
               drawRadar();
+              drawInterior();
               drawFrontDisp();
               drawMenu();
               drawColorBars();
@@ -77,7 +83,10 @@ void draw()
             {
                drawSolarGraph();
             }
-            drawPlanets();
+            if(engineTurnedOn)
+            {
+              drawPlanets();
+            }
             break;
   }
   //drawCamera();
