@@ -12,11 +12,10 @@ void engineOn()
     textSize(30);
     font = loadFont("ImprintMT-Shadow-30.vlw");
     textFont(font, 30);
-    text("Loading Systems",width/2 - 110, height/2 + 200);
+    text("Loading Systems",width/2 - 110, height/2 + 100);
   }
   else
   {
-    
     engineTurnedOn = true;
     engineOn = false;
   }
@@ -88,7 +87,6 @@ void buttonControl()
      if(mouseX > frontDispB5.x && mouseX < frontDispB5.x + frontDispB5.size
      && mouseY > frontDispB5.y && mouseY < frontDispB5.y + frontDispB5.size && mousePressed)
      {
-       engineOn = true;
        missiles = false;
        guns = false;
        drill = false;

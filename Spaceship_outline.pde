@@ -47,8 +47,7 @@ void drawInterior()
     
 }
 
-float xL;
-float xR;
+float xL, xR, xLy, xRy;
 
 void uiOutline()
 {
@@ -64,12 +63,20 @@ void uiOutline()
   arc(width/2, height/40, -800, 150, radians(0), HALF_PI, OPEN);
   line(xL, height/40, width/2 - 398 , height/40);
   line(xR, height/40, width/2 + 398, height/40);
+  line(xL , xLy, xL, height/40);
+  line(xR , xRy, xR, height/40);
   
   
   if(stopX == false)
   {
     xL -= 5;
     xR += 5;
+  }
+  
+  if(xR > width - 80 && xLy < height/4)
+  {
+    xLy +=3;
+    xRy +=3;
   }
   
   if(xR > width - 80)

@@ -6,11 +6,12 @@ Date started 24/10/2016 - current
 */
 
 import ddf.minim.*;
-
+PGraphics pg;
 void setup()
 {
   fullScreen(P3D);
   //size(1920, 1080 , P3D);
+  pg = createGraphics(2048, 1152,P3D);
   smooth(4);
   frameRate(60);
   background(0);
@@ -30,6 +31,8 @@ void setup()
   
   xR = width/2 + 400;
   xL = width/2 - 400;
+  xLy = height/40;
+  xRy = height/40;
   
 }
 
@@ -85,6 +88,7 @@ void draw()
             }
             else
             {
+               solarGraphDets();
                drawSolarGraph();
             }
             if(engineTurnedOn)

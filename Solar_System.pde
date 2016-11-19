@@ -49,7 +49,10 @@ class Planet
   
   void update()
   {
-    if(solarScale == false && mouseX < width/2 + 100 && mouseX > width/2 - 50 && mouseY < height/2 + 290 && mouseY > height/2 - 90 && mousePressed)
+    Planet p = planets.get(0);
+    if(solarScale == false && mouseX < p.loc.x + p.size && mouseX > p.loc.y - p.size
+      && mouseY < p.loc.y + p.size && mouseY > p.loc.y - p.size 
+      && mousePressed)
     {
       solarmap = true;
       for(Planet r: planets)
@@ -64,7 +67,7 @@ class Planet
         solarScale = true;
       }
     }
-    if (solarScale == true && mouseY < height/2 /*(mouseX > width/2 + 100 || mouseX < width/2 - 100 || mouseY > height/2 + 290 || mouseY < height/2 - 90)*/ && mousePressed)
+    if (solarScale == true && mouseY < height/2 && mousePressed)
     {
       solarmap = false;
       for(Planet r: planets)
@@ -78,15 +81,6 @@ class Planet
       {
         solarScale = false;
       }
-    }
-  }
-  
-  void drawSolarGraph()
-  {
-    for(int x = 0; x < width/2; x += (width/2)/7)
-    {
-      fill(255);
-      rect(x, height/2, (width/2)/7, -loc.z);
     }
   }
 }//End glass
