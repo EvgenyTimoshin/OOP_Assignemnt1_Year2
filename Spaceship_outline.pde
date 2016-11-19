@@ -52,14 +52,19 @@ float xR;
 
 void uiOutline()
 {
+  float ypos = height/40;
   Radar r = radars.get(0);
   pushMatrix();
   translate(0, 0 , +1);
   stroke(r.c);
-  strokeWeight(8);
+  strokeWeight(5);
   
-  line(xL, 0 + height/40, width/2 , 0 + height/40);
-  line(xR, 0 + height/40, width/2 , 0 + height/40);
+  noFill();
+  arc(width/2, height/40, 800, 150, radians(0), HALF_PI, OPEN);
+  arc(width/2, height/40, -800, 150, radians(0), HALF_PI, OPEN);
+  line(xL, height/40, width/2 - 398 , height/40);
+  line(xR, height/40, width/2 + 398, height/40);
+  
   
   if(stopX == false)
   {
@@ -67,7 +72,7 @@ void uiOutline()
     xR += 5;
   }
   
-  if(xR > width/2 + width/10)
+  if(xR > width - 80)
   {
     stopX = true;
   }

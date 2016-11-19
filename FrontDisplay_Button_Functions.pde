@@ -25,9 +25,8 @@ void engineOn()
 
 void missiles()
 {
-  fill(255);
-  textSize(20);
-  text("YO",width/2, height/2);
+  ellipse(mouseX, mouseY, 50, 50);
+  ellipse(mouseX, mouseY, 70, 70);
 }
 
 void drill()

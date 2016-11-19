@@ -11,7 +11,7 @@ void setup()
 {
   fullScreen(P3D);
   //size(1920, 1080 , P3D);
-  smooth();
+  smooth(4);
   frameRate(60);
   background(0);
   //textureMode(IMAGE);
@@ -27,6 +27,9 @@ void setup()
   song = new Minim(this); //object that will be used to load the song in
   sound = song.loadFile("menusong.mp3");
   sound.play(); // plays the theme song for the whole prgram on setup
+  
+  xR = width/2 + 400;
+  xL = width/2 - 400;
   
 }
 
@@ -77,7 +80,7 @@ void draw()
               drawRadar();
               drawInterior();
               drawFrontDisp();
-              drawMenu();
+              //drawMenu();
               drawColorBars();
             }
             else
