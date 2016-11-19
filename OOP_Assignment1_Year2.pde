@@ -44,6 +44,7 @@ ArrayList<Radar>radarTexts = new ArrayList<Radar>(); //Array of the N,W,S,E coor
 ArrayList<Menu>buttons = new ArrayList<Menu>(); //Array of buttons objects
 ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>(); // Array for the front display panel located under the solar system map
 ArrayList<Planet>planets = new ArrayList<Planet>(); // Array to store the planet objects
+ArrayList<Loading>systemLoading = new ArrayList<Loading>();
 //Other
 Float radarLoc;
 PImage image;

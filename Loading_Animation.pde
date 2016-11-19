@@ -2,17 +2,22 @@ class Loading
 {
   float lx,ly;
   float radius;
+  float initialRad;
   float size;
   float theta;
   color c;
+  float speed;
   
-  Loading(float x, float y, float size, float theta, color c)
+  Loading(float x, float y, float size,float radius, float theta, color c)
   {
     this.lx = x;
     this.ly = y;
     this.size = size;
     this.theta = theta;
     this.c = c;
+    this.radius = radius;
+    speed = 0.5;
+    initialRad = radius;
   }
   
   void drawLoadingFigure()
@@ -20,9 +25,19 @@ class Loading
     float x = lx + sin(theta) * radius;
     float y = ly - cos(theta) * radius;
     
-    fill(c);
-    ellipse(lx, ly, size, size);
-    ellipse(x, y, size/3, size/3);
-    theta += 0.003f;
+    noStroke();
+    ellipse(lx, ly, size/6, size/6);
+    stroke(c);
+    line(x, y, lx, ly);
+    ellipse(x, y, size/10, size/10);
+    
+    
+    if(radius < 0 || initialRad < radius)
+    {
+      speed *= -1;
+    }
+    
+    radius+=speed;
+    theta+=0.01f;
   }
 }

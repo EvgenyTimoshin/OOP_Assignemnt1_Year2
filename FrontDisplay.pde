@@ -65,7 +65,11 @@ void createFrontDisplay()
   frontDispB5 = new Menu(width/2 + 125 , height - 110, 70, "HDrive");
   frontDispB6 = new Menu(width/2 + 225 , height - 110, 70, "Wipers");
   
-  engineLoading = new Loading(width/2, height/2 + 350, 60, 0.0f, color(255, 0 , 0));
+  for(int i = 0; i < 8; i++)
+  {
+    Loading l = new Loading(width/2, height - 300, 60, random(50, 100), 0.0f + i,color(255, 0, 0));
+    systemLoading.add(l);
+  }
 }//End createWindows
 
 void drawFrontDisp()

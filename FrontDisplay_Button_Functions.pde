@@ -1,10 +1,13 @@
 void engineOn()
 {
-  engineLoading.drawLoadingFigure();
+  for(Loading l: systemLoading)
+  {
+    l.drawLoadingFigure();
+  }
   
   if(bar1.y > bar1.initialY - 255)
   {
-    bar1.y-= 0.8;
+    bar1.y-= 0.6;
     fill(255, 0, 0);
     textSize(30);
     font = loadFont("ImprintMT-Shadow-30.vlw");
