@@ -25,6 +25,7 @@ class ColorBar
     text(text,x + 7 , y + 20);
   }
   
+  //Updates the values and position of the color bars on the screen based on input and keeps them alligned
   void update()
   {
     text = (int)(initialY - y);
@@ -58,7 +59,7 @@ class ColorBar
      Radar r = radars.get(0);
      r.c = color(bar1.text, bar2.text, bar3.text);
   }
-}
+}//End Class
 
 void createColorBars()
 {
@@ -67,9 +68,9 @@ void createColorBars()
   bar1 = new ColorBar(x, y, color(255,0,0));
   bar2 = new ColorBar(x + 50, y, color(0, 255, 0));
   bar3 = new ColorBar(x + 100, y, color(0, 0, 255));
-  
-}
+}//End createColorBars
 
+//Draws each color bar on screen
 void drawColorBars()
 { 
   bar1.update();
@@ -78,4 +79,4 @@ void drawColorBars()
   bar1.drawBars();
   bar2.drawBars();
   bar3.drawBars();
-}
+}//End drawColorBars

@@ -8,12 +8,19 @@ class Menu
   String text;
   color c;
   
-  
   Menu()
   {
     x = -100;
     y = height/5;
     size = 240;
+  }
+  
+  Menu(float x , float y, float size, String text)
+  {
+    this.x = x;
+    this.y = y;
+    this.size = size;
+    this.text = text;
   }
   
   void draw()
@@ -30,14 +37,15 @@ class Menu
     stroke(radar.c, 150);
     noFill();
     rect(x, y, size, size);
-    textSize(10);
+    textSize(13);
+    textMode(CENTER);
     if(text != null)
     {
+      fill(255);
       text(text, x + size/6, y + size/2);
     }
   }
-}
-
+}//End Class
 void drawMenu()
 {
   tab.draw();
@@ -51,7 +59,7 @@ void drawMenu()
   }
   
   menuNav();
-}
+}//End drawMenu
 
 void menuNav()
 {
@@ -70,11 +78,11 @@ void menuNav()
   {
     tab.x += 4;
   }
-  else if(mouseX > 240 && tab.x < 20 && tab.x > -240)
+  else if(mouseX > 240 && tab.x < 20 &&  tab.x > -240)
   {
     tab.x -= 6;
   }
-}
+}//end menuNav
 
 void createButtons()
 {
@@ -86,6 +94,7 @@ void createButtons()
     button.y = height/4 + height/6.5 * i;
     buttons.add(button);
   }
+  
   
   //Solar buttons
   
@@ -113,5 +122,6 @@ void createButtons()
   solarButton4.size = 80;
   solarButton4.y = height/2 + 70;
   solarButton4.text = "dayCycle";
-
-}
+  
+  
+}//End createButtons

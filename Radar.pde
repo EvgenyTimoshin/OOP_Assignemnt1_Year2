@@ -59,21 +59,22 @@ class Radar
   {
     float x = rx + sin(theta) * radarRadius*1.2;
     float y = ry - cos(theta) * radarRadius*1.2;
-    fill(c);
+    Radar r = radars.get(0);
+    fill(r.c);
     text(text, x, y);
     
     if(keyPressed && keyCode == RIGHT)
     {
       for(Radar n: radarTexts)
       {
-        n.theta += 0.009;
+        n.theta += 0.003;
       }
     }
     if(keyPressed && keyCode == LEFT)
     {
       for(Radar n: radarTexts)
       {
-        n.theta -= 0.009;
+        n.theta -= 0.003;
       }
     }
   }
@@ -99,7 +100,7 @@ void setupRadar()
   radarTexts.add(text3);
   Radar text4 = new Radar(radarSize, radarLocX, radarLocY, (color(0, 0, 255)), 255, QUARTER_PI*6, 0.01f, 3, "W");
   radarTexts.add(text4);
-}
+}//end setupRadar
 
 void drawRadar()
 {
@@ -111,34 +112,4 @@ void drawRadar()
   {
     n.drawRadarNavs();
   }
-}
-
-void radarChangeColor()
-{
-  color c = 0;
-  if(red == true)
-  {
-    c = color(255, 0, 0);
-  }
-  if(blue == true)
-  {
-    c = color(0, 0, 255);
-  }
-  if(green == true)
-  {
-    c = color(0, 255, 0);
-  }
-  if(someshit == true)
-  {
-    c = color(random(255), random(255), random(255));
-  }
-  Radar object = radars.get(0);
-  radars.clear();
-  object.c = c;
-  radars.add(object);
-  
-  for(Radar obj: radarTexts)
-  {
-    obj.c = c;
-  }
-}
+}//end drawRadar
