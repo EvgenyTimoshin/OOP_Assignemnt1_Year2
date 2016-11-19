@@ -36,6 +36,7 @@ Boolean blue = false, red = true, green = false, someshit = false, menuButtons =
 Boolean stopX = false, stopY = true;
 Boolean solarScale = false;
 Boolean solarmap = false;
+Boolean engineOn = false, missiles = false, guns = false, drill = false, HDrive = false, engineControl = false;
 //ArrayLists
 ArrayList<Radar>radars = new ArrayList<Radar>(); //Array of radars objects
 ArrayList<Radar>radarTexts = new ArrayList<Radar>(); //Array of the N,W,S,E coordinates on radar
