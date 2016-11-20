@@ -8,6 +8,7 @@ class Planet
   color c;
   String name,resourcelevel,description;
   float age, mass, daycycle;
+  Boolean isSelected = false;
   
   Planet (TableRow row)
   {
@@ -47,6 +48,12 @@ class Planet
     fill(255);
   }
   
+  void drawPlanetDets()
+  {
+     fill(c);
+     ellipse(width - 100, height - loc.z - 100, size, size);
+  }
+  
   void update()
   {
     Planet p = planets.get(0);
@@ -83,6 +90,19 @@ class Planet
       }
     }
   }
+     void setSelsected(int i) {
+   this.isSelected = true;
+   println("Got it " + i);
+   }
+
+   float getScreenX() {
+   float f = screenX(loc.x, loc.y, loc.z);
+   return f;
+   }
+ float getScreenY() {
+   float f = screenY(loc.x, loc.y, loc.z);
+   return f;
+   }
 }//End glass
 
 void createPlanets()
@@ -103,9 +123,7 @@ void drawPlanets()
     p.render();
     p.update();
   }
-}//end drawPLanets
-
-Boolean solarMassGraph = false, solarDistGraph = false, solarCycleGraph = false, solarAgeGraph = false; 
+}//end drawPLanets 
 
 void drawSolarGraph()
 {
@@ -208,68 +226,3 @@ void drawSolarDistGraph()
     x += barW;
    }
 }//End drawSolarDist
-
-void drawSolarMassGraph()
-{
-  float x = 50;
-  float barW = (width/3)/planets.size();
-  
-   for(int i = 1; i < planets.size(); i++)
-   {
-    
-    Planet planet;
-    planet = planets.get(i);
-    fill(planet.c);
-    rect(x, height/2 + 30, barW,-map(planet.mass,0, 9830,0,width/4));
-    if(planet.name != null)
-    {
-      textSize(20);
-      text(planet.name, x+planet.size/5 , height/2 + 50);
-    }
-    println(planet.mass);
-    x += barW;
-   }
-}//End drawSolarMassGraph
-
-void drawSolarAgeGraph()
-{
-  float x = 50;
-  float barW = (width/3)/planets.size();
-  
-   for(int i = 1; i < planets.size(); i++)
-   {
-    
-    Planet planet;
-    planet = planets.get(i);
-    fill(planet.c);
-    rect(x, height/2 + 30, barW,-map(planet.age,0, 10.4,0,width/4));
-    if(planet.name != null)
-    {
-      textSize(20);
-      text(planet.name, x+planet.size/5 , height/2 + 50);
-    }
-    println(planet.mass);
-    x += barW;
-   }
-}//End drawSolarAgeGraph
-
-void drawSolarCycleGraph()
-{
-   float x = 50;
-   float barW = (width/3)/planets.size();
-   for(int i = 1; i < planets.size(); i++)
-   {
-    
-    Planet planet;
-    planet = planets.get(i);
-    fill(planet.c);
-    rect(x, height/2 + 30, barW,-map(planet.daycycle,0, 250,0,width/4));
-    if(planet.name != null)
-    {
-      textSize(20);
-      text(planet.name, x+planet.size/5 , height/2 + 50);
-    }
-    println(planet.mass);
-    x += barW;
-   }
-}//End drawSolarCycleGraph

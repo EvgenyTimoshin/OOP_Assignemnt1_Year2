@@ -1,5 +1,5 @@
 size,distanceFromStar,rotangle,orbitspeed,sizeMax,sizeMin,red,green,blue,name,age,mass,resourcelevel,description,daycycle
-50,0,3.14,0.001,100,50,219,106,40,,15.3,85033,low,The biggest star in the milkyway galaxy,105
+50,0,3.14,0.001,100,50,219,106,40,Andromeda,15.3,450032,low,The biggest star in the milkyway galaxy,105
 5,100,2.7,0.004,10,5,203,31,65,Icarus,5.1,2500,low,Closest planet to Andromeda not habitable,43
 13,130,1.3,0.003,26,13,208,3,255,Elvina,3.4,7860,medium,A naturally teraformed planet filled with diamond,54
 8,160,0.2,0.01,16,8,3,255,240,Terraria,10.4,6540,high,A habitable planet by biological creatures full of water and vegetation,21
