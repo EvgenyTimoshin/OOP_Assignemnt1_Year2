@@ -1,8 +1,8 @@
-size,distanceFromStar,rotangle,orbitspeed,sizeMax,sizeMin,red,green,blue,name,age,mass,resourcelevel,description,daycycle
-50,0,3.14,0.001,100,50,219,106,40,Andromeda,15.3,450032,low,The biggest star in the milkyway galaxy,105
-5,100,2.7,0.004,10,5,203,31,65,Icarus,5.1,2500,low,Closest planet to Andromeda not habitable,43
-13,130,1.3,0.003,26,13,208,3,255,Elvina,3.4,7860,medium,A naturally teraformed planet filled with diamond,54
-8,160,0.2,0.01,16,8,3,255,240,Terraria,10.4,6540,high,A habitable planet by biological creatures full of water and vegetation,21
-15,190,2.8,0.008,30,15,195,255,3,Kala,6.2,3450, medium,Closest planet to terraria in habitability,89
-22,215,3,0.002,44,22,3,255,29,Wate,2.1,9830, high,Extremely hot planet full of natural atomic gases,48
-2,260,2.8,0.009,4,2,65,201,3,Krat,1.8,1023, low,Frozen rock,205
+size,distanceFromStar,rotangle,orbitspeed,sizeMax,sizeMin,red,green,blue,name,age,mass,resourcelevel,description,daycycle,image
+50,0,3.14,0.001,100,50,219,106,40,Andromeda,15.3,450032,low,The biggest star in the milkyway galaxy,105,"sun.jpg"
+5,100,2.7,0.004,10,5,203,31,65,Icarus,5.1,2500,low,Closest planet to Andromeda not habitable,43,"redplanet.png"
+13,130,1.3,0.003,26,13,208,3,255,Elvina,3.4,7860,medium,A naturally teraformed planet filled with diamond,54,"purpleplanet.jpg"
+8,160,0.2,0.01,16,8,3,255,240,Terraria,10.4,6540,high,A habitable planet full of water,21,"blueplanet.jpg"
+15,190,2.8,0.008,30,15,195,255,3,Kala,6.2,3450, medium,Closest planet to terraria in habitability,89,"yellowplanet.jpg"
+22,215,3,0.002,44,22,3,255,29,Wate,2.1,9830, high,Extremely hot planet full of natural atomic gases,48,"greenplanet.jpg"
+2,260,2.8,0.009,4,2,65,201,3,Krat,1.8,1023, low,Frozen rock,205,"darkgreenplanet.jpg"

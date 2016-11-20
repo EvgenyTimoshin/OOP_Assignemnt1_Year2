@@ -9,6 +9,7 @@ class Planet
   String name,resourcelevel,description;
   float age, mass, daycycle;
   Boolean isSelected = false;
+  String image;
   
   Planet (TableRow row)
   {
@@ -25,6 +26,7 @@ class Planet
      this.c = color(row.getInt("red"), row.getInt("green"),row.getInt("blue"));
      this.theta = row.getFloat("rotangle");
      this.speed = row.getFloat("orbitspeed");
+     this.image = row.getString("image");
   }
   
   void render()
@@ -33,6 +35,7 @@ class Planet
     float z = 0 - cos(theta) * loc.z ;
     if(solarScale && name != null)
     {
+      textSize(14);
       text(name, x + size*2, loc.y, z);
     }
     pushMatrix();
@@ -50,8 +53,25 @@ class Planet
   
   void drawPlanetDets()
   {
+     float x = width - 100;
+     float y = height - loc.z - 100;
      fill(c);
-     ellipse(width - 100, height - loc.z - 100, size, size);
+     ellipse(x, y, size, size);
+     
+     if(mouseX > (x - size) && mouseX < (x + size) && mouseY > (y - size) && mouseY < (y + size))
+     {
+       PImage p = loadImage(image);
+       p.resize(0,300);
+       image(p, width - 450, 0 + 150);
+       fill(255);
+       textSize(35);
+       text("Name : " + name, width/2 - 350, 200);
+       text("DayCycle : " + daycycle + "  hrs/day", width/2 - 350, 250);
+       text("Mass : " + mass + "  Killo Tonnes", width/2 - 350, 300);
+       text("Dist from Sun  " + loc.z + "  thousand/km", width/2 - 350, 350);
+       text("Desc: " + description, width/2 - 350, 400);
+       
+     }
   }
   
   void update()

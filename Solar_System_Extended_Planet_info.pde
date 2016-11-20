@@ -68,7 +68,9 @@ void drawSolarAgeGraph()
     Planet planet;
     planet = planets.get(i);
     fill(planet.c);
-    rect(x, height/2 + 30, barW,-map(planet.age,0, 10.4,0,width/4));
+    stroke(planet.c);
+    line(x, height/2, x , height/2 - map(planet.age,0,10.4,0,width/4));
+    ellipse(x, height/2 -map(planet.age,0, 10.4,0,width/4), planet.size, planet.size);
     if(planet.name != null)
     {
       textSize(20);
@@ -89,7 +91,7 @@ void drawSolarCycleGraph()
     Planet planet;
     planet = planets.get(i);
     fill(planet.c);
-    rect(x, height/2 + 30, barW,-map(planet.daycycle,0, 250,0,width/4));
+    text(planet.daycycle, x, height/2 + 30 - map(planet.loc.z,0, 260*2,0,width/4));
     if(planet.name != null)
     {
       textSize(20);
