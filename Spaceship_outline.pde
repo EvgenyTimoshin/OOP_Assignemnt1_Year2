@@ -93,7 +93,7 @@ void uiOutline()
     line(xR, xRy, Rline.x, Rline.y);
     line(xL, xLy, Lline.x, Lline.y);
   }
-  if(stopX == true && Rline.y > height/4 + 145)
+  if(stopX == true && Rline.y > height/4 + 130)
   {
     line(xR, xRy, Rline.x, Rline.y);
     line(xL, xLy, Lline.x, Lline.y);
