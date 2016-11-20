@@ -218,31 +218,4 @@ void drawSolarGraph()
   {
     drawSolarCycleGraph();
   }
-} // End Draw Solar Graphs
-
-///
-//Different graphs
-///
-
-void drawSolarDistGraph()
-{
-  float x = 50;
-  float barW = (width/3)/planets.size();
-  
-   for(int i = 1; i < planets.size(); i++)
-   {
-    
-    Planet planet;
-    planet = planets.get(i);
-    fill(planet.c);
-    stroke(planet.c);
-    ellipse(x, height/2 + 30 - map(planet.loc.z,0, 260*2,0,width/4), planet.size, planet.size);
-    if(planet.name != null)
-    {
-      textSize(20);
-      text(planet.name, x+planet.size/5 , height/2 + 50);
-    }
-    println(planet.mass);
-    x += barW;
-   }
-}//End drawSolarDist
+} // End Draw Solar Graph
