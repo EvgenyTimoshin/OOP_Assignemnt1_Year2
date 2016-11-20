@@ -29,10 +29,7 @@ void setup()
   sound = song.loadFile("menusong.mp3");
   sound.play(); // plays the theme song for the whole prgram on setup
   
-  xR = width/2 + 400;
-  xL = width/2 - 400;
-  xLy = height/40;
-  xRy = height/40;
+  
   
 }
 

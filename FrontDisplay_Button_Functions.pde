@@ -5,9 +5,9 @@ void engineOn()
     l.drawLoadingFigure();
   }
   
-  if(bar1.y > bar1.initialY - 255)
+  if(bar3.y > bar3.initialY - 255)
   {
-    bar1.y-= 0.6;
+    bar3.y-= 3;
     fill(255, 0, 0);
     textSize(30);
     font = loadFont("ImprintMT-Shadow-30.vlw");

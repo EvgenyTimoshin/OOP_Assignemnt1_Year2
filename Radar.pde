@@ -87,7 +87,7 @@ class Radar
 void setupRadar()
 {
   int radarLocX = width - width/9;
-  int radarLocY = height - height/6;;
+  int radarLocY = height /2 + 150;
   int radarSize = 120;
   Radar r = new Radar(radarSize, radarLocX, radarLocY, (color(0, 0 ,255 )), 255, 0.0f, 0.01f,3,"");
   radars.add(r);
