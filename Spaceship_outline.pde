@@ -57,7 +57,7 @@ void uiOutline()
   Radar r = radars.get(0);
   pushMatrix();
   translate(0, 0 , +1);
-  stroke(r.c,120);
+  stroke(r.c,70);
   strokeWeight(5);
   
   noFill();
@@ -80,8 +80,8 @@ void uiOutline()
   
   if(xR > width - 80 && xLy < height/4)
   {
-    xLy +=3;
-    xRy +=3;
+    xLy +=5;
+    xRy +=5;
     Lline.y = xLy;
     Rline.y = xRy;
   }
@@ -93,14 +93,16 @@ void uiOutline()
     line(xR, xRy, Rline.x, Rline.y);
     line(xL, xLy, Lline.x, Lline.y);
   }
-  if(stopX == true && Rline.y > height/4 + 100)
+  if(stopX == true && Rline.y > height/4 + 145)
   {
     line(xR, xRy, Rline.x, Rline.y);
     line(xL, xLy, Lline.x, Lline.y);
     line(Rline.x, Rline.y, xR, xRy);
     
-    line(Rline.x, Rline.y, Rline.x, r.ry - r.radarRadius * 1.6);
-    line(Lline.x, Lline.y, Lline.x, r.ry - r.radarRadius * 1.6);
+    line(Rline.x, Rline.y, Rline.x, r.ry - r.radarRadius * 1.4);
+    line(Lline.x, Lline.y, Lline.x, r.ry - r.radarRadius * 1.4);
+    
+    rect(r.rx -r.radarRadius * 1.4, r.ry - r.radarRadius * 1.4, r.radarRadius * 2.8, r.radarRadius * 2.8);
   }
   
   if(xR > width - 80)

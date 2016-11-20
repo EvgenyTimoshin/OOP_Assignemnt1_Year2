@@ -67,7 +67,7 @@ void draw()
   switch(gameState)
   {
     case 0: background(0);
-            uiOutline();
+            //uiOutline();
             break;
             
     case 1: background(0);

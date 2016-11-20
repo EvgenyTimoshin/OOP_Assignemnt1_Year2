@@ -31,6 +31,8 @@ class Radar
   
   void draw()
   {
+    pushMatrix();
+    translate(0,0,+3);
     if(transperacy == 0 || transperacy == 255)
     {
       fadeSpeed = fadeSpeed * -1;
@@ -39,6 +41,7 @@ class Radar
     
     stroke(c,transperacy);
     noFill();
+    strokeWeight(4);
     ellipse(rx, ry, radarRadius*2, radarRadius*2);
     ellipse(rx, ry, radarRadius*1.6, radarRadius*1.6);
     ellipse(rx, ry, radarRadius*1.2, radarRadius*1.2);
@@ -52,16 +55,23 @@ class Radar
       float y = ry - cos(lineTheta) * radarRadius ;
       line(rx, ry, x, y);
     }
+    
+    popMatrix();
+    strokeWeight(2);
     theta += radarSpeed;
   }//object draw function
   
   void drawRadarNavs()
   {
+    
     float x = rx + sin(theta) * radarRadius*1.2;
     float y = ry - cos(theta) * radarRadius*1.2;
     Radar r = radars.get(0);
     fill(r.c);
+    pushMatrix();
+    translate(0,0,+3);
     text(text, x, y);
+    popMatrix();
     
     if(keyPressed && keyCode == RIGHT)
     {
