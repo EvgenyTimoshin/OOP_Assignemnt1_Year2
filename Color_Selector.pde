@@ -63,7 +63,7 @@ class ColorBar
 
 void createColorBars()
 {
-  float x = 250;
+  float x = 400;
   float y = height - 55;
   bar1 = new ColorBar(x, y, color(255,0,0));
   bar2 = new ColorBar(x + 50, y, color(0, 255, 0));

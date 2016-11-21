@@ -103,6 +103,8 @@ void uiOutline()
     line(Lline.x, Lline.y, Lline.x, r.ry - r.radarRadius * 1.4);
     
     rect(r.rx -r.radarRadius * 1.4, r.ry - r.radarRadius * 1.4, r.radarRadius * 2.8, r.radarRadius * 2.8);
+    rect(40, r.ry - r.radarRadius * 1.4, r.radarRadius * 2.8, r.radarRadius * 2.8);
+    
   }
   
   if(xR > width - 80)

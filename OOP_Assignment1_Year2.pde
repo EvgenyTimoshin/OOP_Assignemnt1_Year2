@@ -28,7 +28,7 @@ void setup()
   song = new Minim(this); //object that will be used to load the song in
   sound = song.loadFile("menusong.mp3");
   sound.play(); // plays the theme song for the whole prgram on setup
-  
+  ship = new Ship(280, height/2 + 130);
   
   
 }
@@ -56,6 +56,7 @@ int gameState = 1;
 Menu solarButton1, solarButton2, solarButton3, solarButton4;// Buttons for the Solar System Map overlay
 Menu frontDispB1, frontDispB2, frontDispB3, frontDispB4, frontDispB5, frontDispB6;
 ColorBar bar1, bar2, bar3; // 3 Color bar objects
+Ship ship;
 AudioPlayer sound;
 Minim song;
 Loading engineLoading;
@@ -83,6 +84,7 @@ void draw()
               drawFrontDisp();
               //drawMenu();
               drawColorBars();
+              ship.draw();
             }
             else
             {
