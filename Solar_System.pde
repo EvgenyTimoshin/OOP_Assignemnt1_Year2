@@ -31,10 +31,15 @@ class Planet
   
   void render()
   {
+    
     float x = width/2 + sin(theta) * loc.z;
     float z = 0 - cos(theta) * loc.z ;
     if(solarScale && name != null)
     {
+      fill(255, 0, 0);
+      textSize(20);
+      text("Click and Hold Here to Zoom out!", loc.x - 150, height/2 - 20);
+      fill(255);
       textSize(14);
       text(name, x + size*2, loc.y, z);
     }
@@ -49,6 +54,12 @@ class Planet
     popMatrix();
     theta +=speed;
     fill(255);
+    
+    if(solarScale == false)
+    {
+      textSize(20);
+      text("Click and Hold the Sun", loc.x - 100, loc.y - 100);
+    }
   }
   
   void drawPlanetDets()

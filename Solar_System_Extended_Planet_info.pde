@@ -5,7 +5,7 @@ void solarGraphDets()
   
   for(Planet p: planets)
   {
-    y = y + 60;
+    y = y + 50;
     fill(p.c);
     textSize(20);
     if(p.loc.z != 0)
