@@ -49,6 +49,7 @@ class Planet
     rotateY(theta);
     sphereDetail(20);
     stroke(0,120);
+    strokeWeight(2);
     fill(c);
     sphere(size);
     popMatrix();

@@ -101,6 +101,7 @@ void buttonControl()
      if(engineOn)
      {
        engineOn();
+       runUi = true;
      }
      if(missiles)
      {

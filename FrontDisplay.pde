@@ -36,6 +36,7 @@ class FrontDisplay
     s.beginShape();
     s.fill(r.c, 4);
     s.stroke(r.c);
+    s.strokeWeight(3);
     s.vertex(x, y + size/4, -250);
     s.vertex(x + size/4, y - size, -250);
     s.vertex(width/2 + size*.75, y - size,-250);

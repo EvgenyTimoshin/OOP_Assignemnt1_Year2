@@ -18,6 +18,7 @@ class ColorBar
   void drawBars()
   {
     stroke(c);
+    strokeWeight(4);
     noFill();
     rect(x, y,40 , 40);
     line(x + 20, y + 40, x + 20, height);

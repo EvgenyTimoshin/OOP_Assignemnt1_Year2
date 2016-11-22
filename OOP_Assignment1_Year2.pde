@@ -61,6 +61,7 @@ AudioPlayer sound;
 Minim song;
 Loading engineLoading;
 PFont font;
+Boolean runUi = false;
 
 void draw()
 {
@@ -75,7 +76,7 @@ void draw()
             //Draws the various elements that where created in the setup
             if(solarmap == false)
             {
-              if(engineTurnedOn)
+              if(runUi)
               {
                 uiOutline();
               }
@@ -97,6 +98,7 @@ void draw()
               drawPlanets();
             }
             break;
+            
   }
   //drawCamera();
 }
