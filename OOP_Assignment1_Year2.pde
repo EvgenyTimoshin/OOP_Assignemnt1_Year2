@@ -1,4 +1,4 @@
-/*
+ /*
 GUI assignment1 for OOP
 Author : Evgeny Timoshin
 Student NO: c15514003
@@ -6,12 +6,13 @@ Date started 24/10/2016 - current
 */
 
 import ddf.minim.*;
-PGraphics pg;
+
+
 void setup()
 {
   fullScreen(P3D);
   //size(1920, 1080 , P3D);
-  pg = createGraphics(2048, 1152,P3D);
+  
   smooth(4);
   frameRate(60);
   background(0);
@@ -62,6 +63,7 @@ ColorBar bar1, bar2, bar3; // 3 Color bar objects
 Ship ship;
 AudioPlayer sound;
 Minim song;
+Minim sounds;
 Loading engineLoading;
 PFont font;
 Boolean runUi = false;
@@ -91,6 +93,7 @@ void draw()
               drawColorBars();
               drawDials();
               ship.draw();
+              drawSound();
             }
             else
             {
