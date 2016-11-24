@@ -35,9 +35,10 @@ class Dial
     strokeWeight(5);
     ellipse(x, y, 160, 160);
     strokeWeight(7);
+    fill(255);
     textSize(20);
     text(((int)(map(endangle, HALF_PI, 6.47, 0, 100))),x - 12 , y + 2);
-    text(text, x - 12 , y + 100);
+    text(text, x - 25 , y + 110);
   }
   
   void update()
@@ -47,10 +48,16 @@ class Dial
       if(keyPressed && key == 'w' && endangle <= 6.47)
       {
         endangle += 0.01;
+        fill(255, 0 , 0);
+        textSize(25);
+        text("THRUSTERS ENGANGED!", width/2 - 150, height - 150);
       }
       if(keyPressed && key == 's' && endangle > HALF_PI)
       {
         endangle -= 0.01;
+        fill(255, 150 , 0);
+        textSize(25);
+        text("REVERSE THRUSTERS!", width/2 - 140, height - 150);
       } 
     }
     

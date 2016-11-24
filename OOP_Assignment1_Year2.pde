@@ -30,6 +30,7 @@ void setup()
   sound = song.loadFile("menusong.mp3");
   sound.play(); // plays the theme song for the whole prgram on setup
   ship = new Ship(280, height/2 + 130);
+  font = loadFont("NasalizationRg-Regular-48.vlw");
   
   
 }
@@ -67,7 +68,8 @@ Boolean runUi = false;
 
 void draw()
 {
-  //lights();
+  //lights(); 
+  textFont(font, 30);
   switch(gameState)
   {
     case 0: background(0);

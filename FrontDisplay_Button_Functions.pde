@@ -20,8 +20,8 @@ void engineOn()
     bar3.y-= 0.87;
     fill(255, 0, 0);
     textSize(30);
-    font = loadFont("NasalizationRg-Regular-48.vlw");
-    textFont(font, 30);
+    
+   
     text("Loading Systems",width/2 - 122, height/2 + 100);
   }
   else

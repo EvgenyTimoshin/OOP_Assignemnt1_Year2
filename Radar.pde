@@ -70,6 +70,7 @@ class Radar
     fill(r.c);
     pushMatrix();
     translate(0,0,+3);
+    textSize(14);
     text(text, x, y);
     popMatrix();
     
