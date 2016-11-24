@@ -5,14 +5,24 @@ void engineOn()
     l.drawLoadingFigure();
   }
   
+  if(dials.get(1).endangle <= 6.47)
+  {
+    dials.get(1).endangle += .017;
+  }
+  
+  if(dials.get(2).endangle <= 4.5)
+  {
+    dials.get(2).endangle += .012;
+  }
+  
   if(bar3.y > bar3.initialY - 255)
   {
-    bar3.y-= 3;
+    bar3.y-= 0.87;
     fill(255, 0, 0);
     textSize(30);
-    font = loadFont("ImprintMT-Shadow-30.vlw");
+    font = loadFont("NasalizationRg-Regular-48.vlw");
     textFont(font, 30);
-    text("Loading Systems",width/2 - 110, height/2 + 100);
+    text("Loading Systems",width/2 - 122, height/2 + 100);
   }
   else
   {

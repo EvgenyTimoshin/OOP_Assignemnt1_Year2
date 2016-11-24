@@ -19,11 +19,23 @@ class Dial
   
   void render()
   {
-    stroke(radars.get(0).c);
+    if(text != "Speed")
+    {
+      stroke(87, endangle * 50, 2);
+    }
+    else
+    {
+      stroke(radars.get(0).c);
+    }
     strokeWeight(size);
     noFill();
     arc(x , y , 120, 120, startangle, endangle);
+    strokeWeight(2);
+    stroke(radars.get(0).c);
+    strokeWeight(5);
+    ellipse(x, y, 160, 160);
     strokeWeight(7);
+    textSize(20);
     text(((int)(map(endangle, HALF_PI, 6.47, 0, 100))),x - 12 , y + 2);
     text(text, x - 12 , y + 100);
   }
@@ -34,12 +46,20 @@ class Dial
     {
       if(keyPressed && key == 'w' && endangle <= 6.47)
       {
-        endangle += 0.1;
+        endangle += 0.01;
       }
-      if(keyPressed && key == 's' && endangle > 1.5)
+      if(keyPressed && key == 's' && endangle > HALF_PI)
       {
-        endangle -= 0.1;
+        endangle -= 0.01;
       } 
+    }
+    
+    if(text == "Fuel")
+    {
+      if(frameCount % 240 == 0)
+      {
+        endangle -= 0.04;
+      }
     }
   }
   
@@ -50,10 +70,10 @@ void createDials()
   Dial d = new Dial(width - 450, height - 120, HALF_PI, HALF_PI ,25, "Speed");
   dials.add(d);
   
-  d = new Dial(width - 300, height - 120, HALF_PI, HALF_PI ,25, "Fuel");
+  d = new Dial(width - 275, height - 120, HALF_PI, HALF_PI ,25, "Fuel");
   dials.add(d);
   
-  d = new Dial(width - 150, height - 120, HALF_PI, HALF_PI ,25, "HDrive F");
+  d = new Dial(width - 100, height - 120, HALF_PI, HALF_PI ,25, "HDrive F");
   dials.add(d);
 }
 

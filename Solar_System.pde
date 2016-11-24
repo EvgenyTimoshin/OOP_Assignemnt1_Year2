@@ -38,7 +38,7 @@ class Planet
     {
       fill(255, 0, 0);
       textSize(20);
-      text("Click and Hold Here to Zoom out!", loc.x - 150, height/2 - 20);
+      text("Click and Hold Here to Zoom out!", loc.x - 160, height/2 - 20);
       fill(255);
       textSize(14);
       text(name, x + size*2, loc.y, z);
@@ -59,7 +59,7 @@ class Planet
     if(solarScale == false)
     {
       textSize(20);
-      text("Click and Hold the Sun", loc.x - 100, loc.y - 100);
+      text("Click and Hold the Sun", loc.x - 115, loc.y - 100);
     }
   }
   
