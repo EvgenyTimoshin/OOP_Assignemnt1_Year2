@@ -1,37 +1,83 @@
-
-float theta = 0.0f;
-float radius = 200;
-float lastX, lastY;
-void drawSound()
+class soundVisualiser
 {
-  stroke(radars.get(0).c);
-  strokeWeight(4);
+  PVector pos;
+  float theta = 0.0f;
+  float radius;
+  float size = 250;
   
-  while(theta < 6.28)
+  soundVisualiser(float x, float y, float radius)
   {
-  // use the mix buffer to draw the waveforms.
-  for (int i = 0; i < sound.bufferSize() - 1; i++)
+    pos = new PVector(x, y);
+    this.radius = radius;
+  }
+  
+  void render()
   {
-    /*
-    float x1 = map(i, 0, kick.bufferSize(), 0, width);
-    float x2 = map(i+1, 0, kick.bufferSize(), 0, width);
+    fill(radars.get(0).c);
+    //strokeWeight(3);
     
-    line(x1, 50 - kick.mix.get(i)*50, x2, 50 - kick.mix.get(i+1)*50);
-    line(x1, 150 - snare.mix.get(i)*50, x2, 150 - snare.mix.get(i+1)*50);
-    */
-    ////////////////////////////////////////////////////////////////////////
-    
-    float x1 = 200 + sin(theta) * 80;
-    float y1 = height - 100 - cos(theta) * 80;
-    
-    
-    
-    point(x1 - sound.mix.get(i)*400 , y1);
-    //line(x1 - sound.mix.get(i)*200 , y1, lastX, lastY);
-    theta += 0.8f;
-    lastX = x1- sound.mix.get(i)*100;
-    lastY = y1;
+    if(moveSoundVis == false)
+    {
+      stroke(radars.get(0).c);
+    }
+    for (int i = 0; i < sound.bufferSize() - 1; i++)
+    {
+   
+      float x1 = pos.x + sin(theta) * radius;
+      float y1 = pos.y - cos(theta) * radius;
+      
+      point(x1 - sound.mix.get(i)*size , y1);
+      theta += 0.003f;
+     }
   }
+  
+  void update()
+  {
+    if(mouseX < pos.x + radius && mouseX > pos.x - radius && mouseY < pos.y + radius && mouseY > pos.y - radius && mousePressed)
+    {
+      moveSoundVis = true;
+    }
+    
+    if(moveSoundVis)
+    {
+      if(keyPressed && key == ' ')
+      {
+        strokeWeight(random(1,35));
+      }
+      stroke(color(map(mouseY,0,255,0,height), 0, map(mouseX,0,255,0,width)));
+      size = map(mouseX,100,1000,0,width);
+      radius = map(mouseY,0,height,0,500);
+      if(pos.x < width/2 && pos.y > height/2)
+      {
+        pos.add(5.37, -3);
+        radius++;
+      }else if(mousePressed)
+      {
+        moveSoundVis = false;
+      }
+    }
+    else
+    {
+      if(pos.x > 200 && pos.y < height - 100)
+      {
+        pos.sub(5.37, -3);
+        radius--;
+      }
+      size = 250;
+      radius = 80;
+      strokeWeight(3);
+    }
   }
-  theta = 0.0f;
+
+}
+
+void createSoundVisualiser()
+{
+   v = new soundVisualiser(200, height - 100, 80);
+}
+
+void drawSoundVisualiser()
+{
+  v.update();
+  v.render();
 }

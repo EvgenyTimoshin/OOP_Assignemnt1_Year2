@@ -23,6 +23,7 @@ void setup()
   createPlanets(); //creates planets for the solar system map
   createColorBars(); // creates bars to adjust color to your liking
   createDials();
+  createSoundVisualiser();
   image = loadImage("hiresspace.jpg"); //Loads in image for the windows background
   //setupCamera();
   setupUi(); // creates the parameters for the ui to be drawn
@@ -45,6 +46,7 @@ Boolean engineOn = false, missiles = false, guns = false, drill = false, HDrive 
 Boolean engineTurnedOn = false;
 Boolean solarMassGraph = false, solarDistGraph = false, solarCycleGraph = false, solarAgeGraph = false;
 Boolean menuButtons = false;
+Boolean moveSoundVis = false;
 //ArrayLists
 ArrayList<Radar>radars = new ArrayList<Radar>(); //Array of radars objects
 ArrayList<Radar>radarTexts = new ArrayList<Radar>(); //Array of the N,W,S,E coordinates on radar
@@ -65,6 +67,7 @@ AudioPlayer sound;
 Minim song;
 Minim sounds;
 Loading engineLoading;
+soundVisualiser v;
 PFont font;
 Boolean runUi = false;
 
@@ -72,41 +75,37 @@ void draw()
 {
   //lights(); 
   textFont(font, 30);
-  switch(gameState)
-  {
-    case 0: background(0);
-            //uiOutline();
-            break;
-            
-    case 1: background(0);
-            //Draws the various elements that where created in the setup
-            if(solarmap == false)
-            {
-              if(runUi)
-              {
-                uiOutline();
-              }
-              drawRadar();
-              drawInterior();
-              drawFrontDisp();
-              //drawMenu();
-              drawColorBars();
-              drawDials();
-              ship.draw();
-              drawSound();
-            }
-            else
-            {
-               solarGraphDets();
-               drawSolarGraph();
-               drawPlanetDets();
-            }
-            if(engineTurnedOn)
-            {
-              drawPlanets();
-            }
-            break;
-            
-  }
-  //drawCamera();
+  background(0);
+ //Draws the various elements that where created in the setup
+ 
+  if(solarmap == false && moveSoundVis == false)
+   {
+      if(runUi)
+      {
+        uiOutline();
+      }
+      drawRadar();
+      drawInterior();
+      drawFrontDisp();
+      //drawMenu();
+      drawColorBars();
+      drawDials();
+      ship.draw();
+      drawSoundVisualiser();
+    }
+    else if(solarmap)
+    {
+       solarGraphDets();
+       drawSolarGraph();
+       drawPlanetDets();
+    }
+    else
+    {
+      drawSoundVisualiser();
+    }
+    
+    if(engineTurnedOn && moveSoundVis == false)
+    {
+      drawPlanets();
+    }     
 }
