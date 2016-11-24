@@ -46,7 +46,7 @@ class Radar
     ellipse(rx, ry, radarRadius*1.6, radarRadius*1.6);
     ellipse(rx, ry, radarRadius*1.2, radarRadius*1.2);
     
-    float intensityChange = 180.0f / trailLength;
+    float intensityChange = 200.0f / trailLength;
     for(int i = 0 ; i < trailLength ; i ++)
     {   
       float lineTheta = theta - (i * 0.009f);

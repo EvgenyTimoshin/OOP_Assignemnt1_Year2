@@ -21,6 +21,7 @@ void setup()
   createFrontDisplay(); // creates the windows of the font of the spaceship
   createPlanets(); //creates planets for the solar system map
   createColorBars(); // creates bars to adjust color to your liking
+  createDials();
   image = loadImage("hiresspace.jpg"); //Loads in image for the windows background
   //setupCamera();
   setupUi(); // creates the parameters for the ui to be drawn
@@ -49,6 +50,7 @@ ArrayList<Menu>buttons = new ArrayList<Menu>(); //Array of buttons objects
 ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>(); // Array for the front display panel located under the solar system map
 ArrayList<Planet>planets = new ArrayList<Planet>(); // Array to store the planet objects
 ArrayList<Loading>systemLoading = new ArrayList<Loading>();
+ArrayList<Dial>dials = new ArrayList<Dial>();
 //Other
 Float radarLoc;
 PImage image;
@@ -85,6 +87,7 @@ void draw()
               drawFrontDisp();
               //drawMenu();
               drawColorBars();
+              drawDials();
               ship.draw();
             }
             else
