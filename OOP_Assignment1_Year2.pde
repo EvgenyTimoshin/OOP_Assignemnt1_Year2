@@ -24,6 +24,7 @@ void setup()
   createColorBars(); // creates bars to adjust color to your liking
   createDials();
   createSoundVisualiser();
+  createCrosshairs();
   image = loadImage("hiresspace.jpg"); //Loads in image for the windows background
   //setupCamera();
   setupUi(); // creates the parameters for the ui to be drawn
@@ -55,6 +56,7 @@ ArrayList<FrontDisplay>displays = new ArrayList<FrontDisplay>(); // Array for th
 ArrayList<Planet>planets = new ArrayList<Planet>(); // Array to store the planet objects
 ArrayList<Loading>systemLoading = new ArrayList<Loading>();
 ArrayList<Dial>dials = new ArrayList<Dial>();
+ArrayList<MissileAim> missileCross = new ArrayList<MissileAim>();
 //Other
 Float radarLoc;
 PImage image;
@@ -68,6 +70,9 @@ Minim song;
 Minim sounds;
 Loading engineLoading;
 soundVisualiser v;
+Crosshair shipDrill;
+Crosshair shipGun;
+
 PFont font;
 Boolean runUi = false;
 
@@ -92,6 +97,7 @@ void draw()
       drawDials();
       ship.draw();
       drawSoundVisualiser();
+      drawCrosshairs();
     }
     else if(solarmap)
     {
