@@ -32,10 +32,20 @@ void engineOn()
   
 }
 
+
+
 void missiles()
 {
-  ellipse(mouseX, mouseY, 50, 50);
-  ellipse(mouseX, mouseY, 70, 70);
+  noFill();
+  
+  if(mouseX < width/2 + 320 && mouseX > width/2 - 320 && mouseY < height/2 - 20 && mouseY > height/2 - 430)
+  {
+    ellipse(mouseX, mouseY, 20, 20);
+  }
+  else
+  {
+    ellipse(width/2, height/2 - 200, 20, 20);
+  }
 }
 
 void drill()
@@ -130,3 +140,25 @@ void buttonControl()
        HDrive();
      }
 }
+
+//ArrayList<IButton> buttons_ = new ArrayList<>();
+
+class BareButton {
+  PVector pos;
+}
+
+interface IButton {
+  void onClick();
+}
+
+class Button_ extends BareButton implements IButton {
+  Button_(){}
+  
+  void onClick() {
+    
+  }
+}
+
+//setup
+//buttons_.add(new Button_())`
+//buttons_.get(0).onClick();
