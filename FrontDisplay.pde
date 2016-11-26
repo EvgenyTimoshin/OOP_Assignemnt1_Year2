@@ -64,7 +64,7 @@ void createFrontDisplay()
   frontDispB3 = new Menu(width/2 - 100, height - 110, 70, "Gun");
   frontDispB4 = new Menu(width/2 + 25, height - 110, 70, "Drill");
   frontDispB5 = new Menu(width/2 + 125 , height - 110, 70, "HDrive");
-  frontDispB6 = new Menu(width/2 + 225 , height - 110, 70, "Wipers");
+  frontDispB6 = new Menu(width/2 + 225 , height - 110, 70, "      ?");
   
   for(int i = 0; i < 8; i++)
   {

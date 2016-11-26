@@ -25,11 +25,17 @@ class Crosshair
     strokeWeight(size);
     if(mouseX < width/2 + 350 && mouseX > width/2 - 350 && mouseY < height/2 - 20 && mouseY > 100 )
     {
-      if(mousePressed)
+      if(mousePressed && size > 10)
        {
          strokeWeight(8);
          line(mouseX, mouseY , width/3 - 15, height/2 - 5);
          line(mouseX, mouseY , width/3*2 + 15, height/2 - 5);
+       }
+       
+       if(mousePressed && size < 10)
+       {
+         strokeWeight(8);
+         point(mouseX, mouseY);
        }
        
        ellipse(mouseX, mouseY, radius, radius);
@@ -70,6 +76,7 @@ class MissileAim extends Crosshair
     noFill();
     stroke(0, 255, 50);
     strokeWeight(size);
+    
     if(mouseX < width/2 + 350 && mouseX > width/2 - 350 && mouseY < height/2 - 20 && mouseY > 100 )
     {
       noCursor();
@@ -94,6 +101,7 @@ void createCrosshairs()
     missileCross.add(new MissileAim(40*1.5, 4, 0.04f, QUARTER_PI, PI));
     
     shipDrill = new Crosshair(20,20,color(0, 255, 255));
+    shipGun = new Crosshair(40, 3, color(255, 0, 0));
 }
 
 void drawCrosshairs()
@@ -114,10 +122,5 @@ void drawCrosshairs()
   if(drill)
   {
     shipDrill.render();
-  }
-  
-  if(HDrive)
-  {
-    //HDrive.render();
   }
 }

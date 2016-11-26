@@ -34,7 +34,8 @@ void setup()
   sound.play(); // plays the theme song for the whole prgram on setup
   ship = new Ship(280, height/2 + 130);
   font = loadFont("NasalizationRg-Regular-48.vlw");
-  
+  sassy = loadImage("sassy.jpg");
+  sassySound = song.loadSnippet("sassy.mp3");
   
 }
 
@@ -48,6 +49,7 @@ Boolean engineTurnedOn = false;
 Boolean solarMassGraph = false, solarDistGraph = false, solarCycleGraph = false, solarAgeGraph = false;
 Boolean menuButtons = false;
 Boolean moveSoundVis = false;
+Boolean EasterEgg = false;
 //ArrayLists
 ArrayList<Radar>radars = new ArrayList<Radar>(); //Array of radars objects
 ArrayList<Radar>radarTexts = new ArrayList<Radar>(); //Array of the N,W,S,E coordinates on radar
@@ -60,12 +62,15 @@ ArrayList<MissileAim> missileCross = new ArrayList<MissileAim>();
 //Other
 Float radarLoc;
 PImage image;
+PImage sassy;
 int gameState = 1;
+int easterEggCounter = 15;
 Menu solarButton1, solarButton2, solarButton3, solarButton4;// Buttons for the Solar System Map overlay
 Menu frontDispB1, frontDispB2, frontDispB3, frontDispB4, frontDispB5, frontDispB6;
 ColorBar bar1, bar2, bar3; // 3 Color bar objects
 Ship ship;
 AudioPlayer sound;
+AudioSnippet sassySound;
 Minim song;
 Minim sounds;
 Loading engineLoading;
@@ -82,8 +87,11 @@ void draw()
   textFont(font, 30);
   background(0);
  //Draws the various elements that where created in the setup
- 
-  if(solarmap == false && moveSoundVis == false)
+  if(EasterEgg)
+  {
+    easterEgg();
+  }
+  if(solarmap == false && moveSoundVis == false && EasterEgg == false)
    {
       if(runUi)
       {
