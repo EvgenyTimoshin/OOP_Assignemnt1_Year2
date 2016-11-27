@@ -64,7 +64,7 @@ Float radarLoc;
 PImage image;
 PImage sassy;
 int gameState = 1;
-int easterEggCounter = 15;
+float easterEggCounter = 15;
 Menu solarButton1, solarButton2, solarButton3, solarButton4;// Buttons for the Solar System Map overlay
 Menu frontDispB1, frontDispB2, frontDispB3, frontDispB4, frontDispB5, frontDispB6;
 ColorBar bar1, bar2, bar3; // 3 Color bar objects

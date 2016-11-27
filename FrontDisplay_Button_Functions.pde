@@ -50,7 +50,7 @@ void easterEgg()
   s.endShape(CLOSE);
   shape(s);
   popMatrix();
-  easterEggCounter--;
+  easterEggCounter -=  0.05;
   if(easterEggCounter < 0)
   {
     EasterEgg = false;
