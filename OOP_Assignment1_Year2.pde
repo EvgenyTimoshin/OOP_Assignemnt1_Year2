@@ -91,8 +91,8 @@ void draw()
   {
     easterEgg();
   }
-  if(solarmap == false && moveSoundVis == false && EasterEgg == false)
-   {
+  else if(solarmap == false && moveSoundVis == false && EasterEgg == false)
+  {
       if(runUi)
       {
         uiOutline();
@@ -107,7 +107,7 @@ void draw()
       drawSoundVisualiser();
       drawCrosshairs();
     }
-    else if(solarmap)
+    else if(solarmap && EasterEgg == false)
     {
        solarGraphDets();
        drawSolarGraph();
@@ -118,7 +118,7 @@ void draw()
       drawSoundVisualiser();
     }
     
-    if(engineTurnedOn && moveSoundVis == false)
+    if(engineTurnedOn && moveSoundVis == false && EasterEgg == false)
     {
       drawPlanets();
     }     

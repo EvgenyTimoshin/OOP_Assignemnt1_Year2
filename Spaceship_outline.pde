@@ -57,6 +57,9 @@ void uiOutline()
   Radar r = radars.get(0);
   pushMatrix();
   translate(0, 0 , +1);
+  fill(r.c);
+  textSize(30);
+  text(hour() + "  " + minute() + "  " + second(), width/2 - 45, 80);
   stroke(r.c,150);
   strokeWeight(5);
   

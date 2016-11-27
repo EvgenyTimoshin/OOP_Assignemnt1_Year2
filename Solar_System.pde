@@ -76,7 +76,7 @@ class Planet
        p.resize(0,300);
        image(p, width - 450, 0 + 150);
        fill(255);
-       textSize(35);
+       textSize(30);
        text("Name : " + name, width/2 - 350, 200);
        text("DayCycle : " + daycycle + "  hrs/day", width/2 - 350, 250);
        text("Mass : " + mass + "  Killo Tonnes", width/2 - 350, 300);
