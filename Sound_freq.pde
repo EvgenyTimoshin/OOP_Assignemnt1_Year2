@@ -68,7 +68,6 @@ class soundVisualiser
       strokeWeight(3);
     }
   }
-
 }
 
 void createSoundVisualiser()

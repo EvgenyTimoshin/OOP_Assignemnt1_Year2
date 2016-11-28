@@ -31,7 +31,6 @@ class Planet
   
   void render()
   {
-    
     float x = width/2 + sin(theta) * loc.z;
     float z = 0 - cos(theta) * loc.z ;
     if(solarScale && name != null)
@@ -82,7 +81,6 @@ class Planet
        text("Mass : " + mass + "  Killo Tonnes", width/2 - 350, 300);
        text("Dist from Sun  " + loc.z + "  thousand/km", width/2 - 350, 350);
        text("Desc: " + description, width/2 - 350, 400);
-       
      }
   }
   
@@ -177,7 +175,6 @@ void drawSolarGraph()
     }
   }
 
-  
   if(mouseX > solarButton2.x && mouseX < solarButton2.x + solarButton2.size
      && mouseY > solarButton2.y && mouseY < solarButton2.y + solarButton2.size)
   {

@@ -7,7 +7,6 @@ Date started 24/10/2016 - current
 
 import ddf.minim.*;
 
-
 void setup()
 {
   fullScreen(P3D);
@@ -36,7 +35,6 @@ void setup()
   font = loadFont("NasalizationRg-Regular-48.vlw");
   sassy = loadImage("sassy.jpg");
   sassySound = song.loadSnippet("sassy.mp3");
-  
 }
 
 //GLOBAL VARS

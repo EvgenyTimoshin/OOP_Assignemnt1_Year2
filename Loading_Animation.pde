@@ -31,7 +31,6 @@ class Loading
     line(x, y, lx, ly);
     ellipse(x, y, size/10, size/10);
     
-    
     if(radius < 0 || initialRad < radius)
     {
       speed *= -1;

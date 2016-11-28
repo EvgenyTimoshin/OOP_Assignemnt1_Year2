@@ -38,7 +38,6 @@ class Menu
     noFill();
     rect(x, y, size, size);
     textSize(13);
-    textMode(CENTER);
     if(text != null)
     {
       fill(255);
@@ -64,7 +63,6 @@ void drawMenu()
 void menuNav()
 {
   println(tab.x);
-  
   
   if(tab.x > -5.0f)
   {
@@ -95,15 +93,11 @@ void createButtons()
     buttons.add(button);
   }
   
-  
-  //Solar buttons
-  
   solarButton1 = new Menu();
   solarButton1.x = 50;
   solarButton1.size = 80;
   solarButton1.y = height/2 + 70;
   solarButton1.text = "Dist F star";
-  
   
   solarButton2 = new Menu();
   solarButton2.x = 170;
@@ -122,6 +116,5 @@ void createButtons()
   solarButton4.size = 80;
   solarButton4.y = height/2 + 70;
   solarButton4.text = "dayCycle";
-  
   
 }//End createButtons
