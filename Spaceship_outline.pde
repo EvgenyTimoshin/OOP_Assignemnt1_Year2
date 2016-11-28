@@ -58,8 +58,10 @@ void uiOutline()
   pushMatrix();
   translate(0, 0 , +1);
   fill(r.c);
-  textSize(30);
-  text(hour() + "  " + minute() + "  " + second(), width/2 - 45, 80);
+  textSize(45);
+  text(hour() + "  :  " + minute() + "  :  " + second(), width/2 - 145, 80);
+  textSize(20);
+  text(day() + "  |  " + month() + "  |  " + "2134", width/2 - 70, 30);
   stroke(r.c,150);
   strokeWeight(5);
   
@@ -70,21 +72,19 @@ void uiOutline()
   line(xR, height/40, width/2 + 398, height/40);
   line(xL , xLy, xL, height/40);
   line(xR , xRy, xR, height/40);
-  
-  
+ 
   if(stopX == false)
   {
-    xL -= 5;
-    xR += 5;
+    xL -= 2.5;
+    xR += 2.5;
     Rline.x = xR;
     Lline.x = xL;
-    
   }
   
   if(xR > width - 80 && xLy < height/4)
   {
-    xLy +=5;
-    xRy +=5;
+    xLy +=2.5;
+    xRy +=2.5;
     Lline.y = xLy;
     Rline.y = xRy;
   }
@@ -109,8 +109,6 @@ void uiOutline()
     stroke(r.c, 150);
     rect(r.rx -r.radarRadius * 1.4, r.ry - r.radarRadius * 1.4, r.radarRadius * 2.8, r.radarRadius * 2.8);
     rect(40, r.ry - r.radarRadius * 1.4, r.radarRadius * 2.8, r.radarRadius * 2.8);
-    //line(r.rx - r.radarRadius * 1.4, r.ry + r.radarRadius * 1.4, r.rx - r.radarRadius * 2, height);
-    //line(r.rx + r.radarRadius * 1.4, r.ry + r.radarRadius * 1.4, width, r.ry + r.radarRadius * 1.4);
   }
   
   if(xR > width - 80)

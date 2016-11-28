@@ -14,7 +14,6 @@ class Dial
     this.endangle = endangle;
     this.size = size;
     this.text = text;
-    
   }
   
   void render()
@@ -63,13 +62,18 @@ class Dial
     
     if(text == "Fuel")
     {
-      if(frameCount % 240 == 0)
+      if(frameCount % 240 == 0 && endangle >= 0)
       {
-        endangle -= 0.04;
+        endangle -= 0.2;
+      }
+      if(endangle < 2.5)
+      {
+        textSize(40);
+        fill(255, 0, 0);
+        text("WARNING LOW FUEL", width/2 - 200, height/2 - 50);
       }
     }
   }
-  
 }
 
 void createDials()
