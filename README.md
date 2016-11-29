@@ -1,6 +1,8 @@
 # OOP_Assignemnt1_Year2
 GUI assignment for Object Oriented programming
 
+[![Video](http://img.youtube.com/vi/LIb_wZNv7BY/0.jpg)](http://www.youtube.com/watch?v=LIb_wZNv7BY)]
+
 Install Minim Library in processing for sound, sketch/add library and search for the minim library and install it.
 Run the sketch at 1920 X 1080 resolution for optimal scaling of UI
 
