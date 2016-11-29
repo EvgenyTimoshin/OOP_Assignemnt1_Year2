@@ -12,9 +12,13 @@ Click and hold the Orange Star to zoom in the solar system and bring up a new me
 
 In the main UI area where you start off you can interact with the radar and 3d Model of the ship using the Arrow Keys and also You can use W and S to change the speed of the ship. You will notice this working as the the trusters engaged pop up will come up and also the speed dial will fill up.
 
-The missile,gun and drill buttons will enable the UI for the weapons system in the UI and these will react to your mouse input when the mouse is in the area of the middle windshield of the spaceship.
+The missile,gun and drill buttons will enable the UI for the weapons system in the UI and these will react to your mouse input when the mouse is in the area of the middle windshield of the spaceship. You can press SpaceBar to fire the gun and use mouseclick to fire the drill.
 
-On the left Bottom Corner of the screen is the sound visualiser which visualises the soundtrack of the UI It is a sphere.
+On the left Bottom Corner of the screen is the sound visualiser which visualises the soundtrack of the UI It is a sphere. If clicked it will animate and go into fullscreen where you can then intarct with it by moving the mouse to different parts of the screen.
+
+Once the fuel reaches below 20 a warning sign for the fuel comes up.
+
+The System time and date is displayed at the top of the ui.
 
 ***PARTS OF THE PROGRAM TO NOTE*****
 - The 3D solar system with the orbiting planets
